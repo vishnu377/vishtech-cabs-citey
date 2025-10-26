@@ -1,0 +1,332 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishtech Cabs - Driver Dashboard</title>
+    <link rel="stylesheet" href="public/css/driver-dashboard.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="https://via.placeholder.com/30x30" alt="Vishtech Cabs Logo"> <!-- Replace with your actual logo -->
+            <span>Vishtech Cabs</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#">User</a>
+            <a href="#">Driver</a>
+            <a href="#">Safety</a>
+            <button class="logout-btn">Logout</button>
+        </nav>
+    </header>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="driver-profile">
+                <div class="avatar-circle">
+                    <i class="fas fa-user-circle driver-avatar-icon"></i> <!-- Placeholder for avatar -->
+                </div>
+                <h3>Hello, Rajesh K!</h3>
+                <p>Driver ID: #DR1001</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="nav-item active" data-target="new-requests">
+                        <a href="#new-requests">
+                            <i class="fas fa-car-side"></i>
+                            New Ride Requests
+                        </a>
+                    </li>
+                    <li class="nav-item" data-target="current-ride">
+                        <a href="#current-ride">
+                            <i class="fas fa-route"></i>
+                            Current Ride
+                        </a>
+                    </li>
+                    <li class="nav-item" data-target="earnings">
+                        <a href="#earnings">
+                            <i class="fas fa-dollar-sign"></i>
+                            Earnings Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item" data-target="ride-history">
+                        <a href="#ride-history">
+                            <i class="fas fa-history"></i>
+                            Ride History
+                        </a>
+                    </li>
+                    <li class="nav-item" data-target="vehicle-details">
+                        <a href="#vehicle-details">
+                            <i class="fas fa-car"></i>
+                            Vehicle Details
+                        </a>
+                    </li>
+                    <li class="nav-item" data-target="notifications">
+                        <a href="#notifications">
+                            <i class="fas fa-bell"></i>
+                            Notifications
+                        </a>
+                    </li>
+                    <li class="logout-sidebar">
+                        <a href="#">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <!-- New Ride Requests Section -->
+            <div id="new-requests" class="content-section">
+                <h2>New Ride Requests</h2>
+
+                <!-- Ride Request Card 1 (Auto) -->
+                <div class="ride-card">
+                    <div class="ride-header">
+                        <span class="user-info">User: <strong>Priya Sharma</strong></span>
+                        <span class="ride-type-tag auto">Auto</span>
+                    </div>
+                    <div class="ride-details">
+                        <p><strong>Pickup:</strong> Sector 29, Cyber City</p>
+                        <p><strong>Drop:</strong> MG Road Metro Station</p>
+                        <p>Distance:4.5 km | Est. Fare: ₹120.00 | Time: 12 min</p>
+                    </div>
+                    <div class="ride-actions">
+                        <button class="accept-btn"><i class="fas fa-check-circle"></i> Accept</button>
+                        <button class="reject-btn"><i class="fas fa-times-circle"></i> Reject</button>
+                    </div>
+                </div>
+
+                <!-- Ride Request Card 2 (Bike) -->
+                <div class="ride-card">
+                    <div class="ride-header">
+                        <span class="user-info">User: <strong>Amit Kumar</strong></span>
+                        <span class="ride-type-tag bike">Bike</span>
+                    </div>
+                    <div class="ride-details">
+                        <p><strong>Pickup:</strong> Green Park, Delhi</p>
+                        <p><strong>Drop:</strong> Connaught Place</p>
+                        <p>Distance:7.0 km | Est. Fare: ₹90.00 | Time: 20 min</p>
+                    </div>
+                    <div class="ride-actions">
+                        <button class="accept-btn"><i class="fas fa-check-circle"></i> Accept</button>
+                        <button class="reject-btn"><i class="fas fa-times-circle"></i> Reject</button>
+                    </div>
+                </div>
+
+                <!-- Optional: No New Ride Requests message -->
+                <!-- <p class="no-requests-message">No new ride requests at the moment.</p> -->
+            </div>
+
+            <!-- Current Ride Section -->
+            <div id="current-ride" class="content-section">
+                <h2>Current Ride</h2>
+
+                <div class="current-ride-card">
+                    <h3>Riding with: Anjali Singh</h3>
+                    <p><strong>Pickup:</strong> Old Delhi Railway Station</p>
+                    <p><strong>Drop:</strong> Karol Bagh Market</p>
+                    <p><strong>Fare:</strong> ₹150.00 | <strong>Type:</strong> Auto</p>
+
+                    <div class="live-tracking">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Live Tracking (Google Maps API integration)
+                    </div>
+
+                    <div class="current-ride-actions">
+                        <button class="call-user-btn"><i class="fas fa-phone"></i> Call User</button>
+                        <button class="end-ride-btn"><i class="fas fa-times-circle"></i> End Ride</button>
+                    </div>
+                </div>
+
+                <!-- Optional: Message if no current ride -->
+                <!-- <p class="no-requests-message">No active ride at the moment.</p> -->
+            </div>
+
+            <!-- Earnings Dashboard Section -->
+            <div id="earnings" class="content-section">
+                <h2>Earnings Dashboard</h2>
+
+                <div class="earnings-summary">
+                    <div class="earning-card">
+                        <h3>Today's Earnings</h3>
+                        <p>₹1,250</p>
+                    </div>
+                    <div class="earning-card">
+                        <h3>This Week's Earnings</h3>
+                        <p>₹7,800</p>
+                    </div>
+                </div>
+
+                <div class="ride-earnings-list">
+                    <h3>Ride-wise Earnings</h3>
+                    <div class="earning-item">
+                        <span class="ride-info">Ride #DR12345 (User: Karan)</span>
+                        <span class="ride-amount">₹150.00</span>
+                    </div>
+                    <div class="earning-item">
+                        <span class="ride-info">Ride #DR12344 (User: Shruti)</span>
+                        <span class="ride-amount">₹80.00</span>
+                    </div>
+                    <div class="earning-item">
+                        <span class="ride-info">Ride #DR12343 (User: Rahul)</span>
+                        <span class="ride-amount">₹210.00</span>
+                    </div>
+                    <a href="#" class="view-full-report-btn">View Full Report</a>
+                </div>
+            </div>
+
+            <!-- Ride History Section -->
+            <div id="ride-history" class="content-section">
+                <h2>Your Ride History</h2>
+
+                <div class="history-card">
+                    <h3>Ride #DR12345 <span class="ride-status">(Completed)</span></h3>
+                    <span class="timestamp">2 days ago</span>
+                    <p>User: Karan Sharma | Auto</p>
+                    <p>Earned: ₹150.00</p>
+                    <p>From: Sector 18, Gurgaon</p>
+                    <p>To: Indira Gandhi International Airport</p>
+                </div>
+
+                <div class="history-card">
+                    <h3>Ride #DR12344 <span class="ride-status">(Completed)</span></h3>
+                    <span class="timestamp">Last week</span>
+                    <p>User: Shruti Verma | Bike</p>
+                    <p>Earned: ₹80.00</p>
+                    <p>From: Home Address</p>
+                    <p>To: Tech Park</p>
+                </div>
+                <!-- Add more history cards as needed -->
+            </div>
+
+            <!-- Vehicle Details Section -->
+            <div id="vehicle-details" class="content-section">
+                <h2>Manage Vehicle Details</h2>
+
+                <div class="vehicle-form">
+                    <div class="form-group">
+                        <label for="vehicle-type">Vehicle Type</label>
+                        <select id="vehicle-type" name="vehicle-type">
+                            <option value="bike">Bike</option>
+                            <option value="auto">Auto</option>
+                            <option value="car">Car</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicle-model">Vehicle Model</label>
+                        <input type="text" id="vehicle-model" name="vehicle-model" value="Bajaj Pulsar 150">
+                    </div>
+                    <div class="form-group">
+                        <label for="license-plate">License Plate Number</label>
+                        <input type="text" id="license-plate" name="license-plate" value="UP65 AB 1234">
+                    </div>
+                    <div class="form-group">
+                        <label for="rc-document">RC Book / Registration Document</label>
+                        <input type="file" id="rc-document" name="rc-document">
+                        <p class="current-file-info">Current: RC_Pulsar_1234.pdf</p>
+                    </div>
+                    <button class="save-changes-btn">Save Changes</button>
+                </div>
+            </div>
+
+            <!-- Notifications Section -->
+            <div id="notifications" class="content-section">
+                <h2>Notifications</h2>
+
+                <div class="notification-card">
+                    <h3>New Ride Request!</h3>
+                    <span class="timestamp">Just now</span>
+                    <p>A new ride request from User: Priya Sharma. Pickup: Cyber City.</p>
+                </div>
+                <div class="notification-card">
+                    <h3>Your weekly payout processed!</h3>
+                    <span class="timestamp">Yesterday</span>
+                    <p>₹7,800 has been transferred to your bank account.</p>
+                </div>
+                <!-- Add more notification cards as needed -->
+            </div>
+
+        </main>
+    </div>
+
+    <footer class="footer">
+        <!-- Footer content can go here if needed -->
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('.sidebar-nav .nav-item');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            // Function to hide all content sections
+            function hideAllSections() {
+                contentSections.forEach(section => {
+                    section.style.display = 'none';
+                });
+            }
+
+            // Function to deactivate all nav items
+            function deactivateAllNavItems() {
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                });
+            }
+
+            // Handle navigation clicks
+            navItems.forEach(item => {
+                item.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent default link behavior (page reload)
+
+                    deactivateAllNavItems(); // Deactivate previous active item
+                    this.classList.add('active'); // Activate clicked item
+
+                    hideAllSections(); // Hide all content sections
+
+                    const targetId = this.getAttribute('data-target');
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.style.display = 'block'; // Show the targeted section
+                    }
+                });
+            });
+
+            // Show the default section (New Ride Requests) on page load
+            const initialTarget = document.querySelector('.sidebar-nav .nav-item.active').getAttribute('data-target');
+            document.getElementById(initialTarget).style.display = 'block';
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

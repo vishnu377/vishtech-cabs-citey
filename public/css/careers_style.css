@@ -1,0 +1,155 @@
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f0f2f5; /* Light background */
+    color: #333;
+}
+
+/* Hero Section */
+.hero-careers {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1500x400?text=Join+Our+Team+Background') no-repeat center center/cover;
+    background-size: cover;
+    background-position: center;
+    padding: 80px 0;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.hero-careers h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+.hero-careers p.lead {
+    font-size: 1.25rem;
+}
+
+.hero-careers .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 50px; /* Pill button */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.hero-careers .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Section Headings */
+h2.display-5 {
+    color: #007bff;
+}
+
+/* Why Work With Us Cards */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.card .card-body {
+    text-align: center;
+    padding: 30px;
+}
+
+.card .card-title {
+    font-size: 1.5rem;
+    margin-top: 15px;
+    color: #343a40;
+}
+
+.card .card-text {
+    color: #6c757d;
+}
+
+/* Job Opening Cards */
+.job-opening {
+    border-left: 5px solid #007bff; /* Accent border */
+    margin-bottom: 25px;
+}
+
+.job-opening .card-body {
+    padding: 25px;
+    text-align: left; /* Override card-body center */
+}
+
+.job-opening .card-title {
+    font-size: 1.75rem;
+    color: #343a40;
+    margin-bottom: 5px;
+}
+
+.job-opening .card-subtitle {
+    font-size: 0.95rem;
+    color: #6c757d;
+}
+
+.job-opening .card-text {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: #495057;
+}
+
+.job-opening .job-details-list {
+    margin-top: 15px;
+    padding-left: 0;
+}
+
+.job-opening .job-details-list li {
+    list-style: none;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.job-opening .job-details-list i {
+    color: #007bff;
+    width: 20px; /* Fixed width for icons */
+    text-align: center;
+}
+
+.job-opening .btn-lg {
+    padding: 10px 25px;
+    font-size: 1.1rem;
+    border-radius: 50px; /* Pill button */
+}
+
+/* Footer (assuming common styles from style.css) */
+footer {
+    background-color: #343a40;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 20px 0;
+}
+
+footer a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-careers h1 {
+        font-size: 2.5rem;
+    }
+    .hero-careers p.lead {
+        font-size: 1rem;
+    }
+    .job-opening .col-md-4 {
+        margin-top: 20px; /* Space between job description and apply button on small screens */
+    }
+    .job-opening .text-md-end {
+        text-align: center !important; /* Center button on small screens */
+    }
+}

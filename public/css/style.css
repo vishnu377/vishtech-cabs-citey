@@ -1,0 +1,218 @@
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+    background-color: #f8f9fa; /* Light background for general pages */
+    padding-top: 72px; /* To account for fixed navbar height */
+}
+
+/* --- Navbar Specific Styles --- */
+.navbar {
+    z-index: 1030; /* Ensure navbar is on top */
+}
+
+.navbar-brand .text-primary {
+    color: #007bff !important; /* Bootstrap primary color */
+}
+
+.navbar-nav .nav-link {
+    font-weight: 500;
+    color: #555;
+    margin-right: 15px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007bff;
+}
+
+.navbar-nav .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.navbar-nav .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* --- Hero Section (Login/Signup & Illustration) --- */
+.hero-section {
+    background: linear-gradient(135deg, #e0f2f7 0%, #c1dff0 100%); /* Light blue gradient */
+    min-height: 80vh; /* Make it tall enough */
+}
+
+.auth-card {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.btn-user-driver {
+    background-color: #f0f2f5;
+    color: #555;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    padding: 8px 25px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-user-driver.active {
+    background-color: #007bff; /* Primary blue for User */
+    color: #fff;
+    border-color: #007bff;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+}
+
+.btn-user-driver:hover:not(.active) {
+    background-color: #e9ecef;
+    border-color: #ced4da;
+}
+
+.auth-form .form-control {
+    border-radius: 0.5rem;
+    padding: 10px 15px;
+}
+
+.auth-form .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.auth-form .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.auth-illustration {
+    background-color: #f8f9fa; /* Light background for the image column */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.auth-illustration img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.75rem;
+}
+
+
+/* --- Ride Booking Section --- */
+.ride-booking-section {
+    background: linear-gradient(135deg, #0d6efd 0%, #00aaff 100%); /* Stronger blue gradient */
+    color: white;
+    padding: 80px 0;
+}
+
+.ride-booking-card {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 1rem;
+    border: none;
+    color: #333;
+}
+
+.ride-booking-card .form-label {
+    color: #555;
+    font-weight: 500;
+}
+
+.ride-booking-card .form-control {
+    border-radius: 0.5rem;
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+}
+
+.ride-booking-card .btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #343a40;
+    font-weight: bold;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.ride-booking-card .btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #e0a800;
+}
+
+.booking-illustration {
+    max-height: 200px;
+    object-fit: contain;
+}
+
+/* --- Our Services Section --- */
+.our-services-section {
+    background-color: #f0f2f5;
+    padding: 80px 0;
+}
+
+.service-card {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.service-card img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.service-card ul {
+    padding-left: 0;
+}
+
+.service-card ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.service-card .btn-outline-primary {
+    border-radius: 0.5rem;
+    padding: 8px 25px;
+    font-weight: 500;
+}
+
+.service-card .btn-outline-primary.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.app-store-btn {
+    width: 120px;
+    height: auto;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #212529 !important; /* Darker than default dark */
+    color: #fff;
+}
+
+footer h5 {
+    color: #007bff; /* Primary color for headings */
+    font-weight: bold;
+}
+
+footer a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.2s ease;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+.social-icons a {
+    font-size: 1.5rem;
+}

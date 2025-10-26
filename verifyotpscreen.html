@@ -1,0 +1,161 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify OTP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+            margin: 0;
+        }
+
+        .otp-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 350px;
+        }
+
+        .otp-container h2 {
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .otp-input-group {
+            margin-bottom: 30px;
+        }
+
+        .otp-input-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+            font-size: 1.1em;
+        }
+
+        .otp-input-group input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 12px 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1.2em;
+            text-align: center;
+            letter-spacing: 5px; /* Spacing for OTP digits */
+        }
+
+        .verify-button {
+            width: 100%;
+            padding: 15px;
+            background-color: #007bff; /* Primary blue from your design */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .verify-button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        .resend-otp {
+            margin-top: 20px;
+            font-size: 0.95em;
+        }
+
+        .resend-otp a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .resend-otp a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="otp-container">
+        <h2>Verify OTP</h2>
+        <p>Please enter the 6-digit code sent to your mobile number.</p>
+        <div class="otp-input-group">
+            <label for="otp">Enter OTP</label>
+            <input type="text" id="otp" name="otp" maxlength="6" pattern="\d{6}" inputmode="numeric" autocomplete="one-time-code" required>
+        </div>
+        <button class="verify-button" id="verifyBtn">Verify & Proceed</button> <!-- Added an ID here -->
+        <div class="resend-otp">
+            Didn't receive the code? <a href="#">Resend OTP</a>
+        </div>
+    </div>
+
+    <script>
+        // Get the button element by its ID
+        const verifyButton = document.getElementById('verifyBtn');
+        const otpInput = document.getElementById('otp'); // Get OTP input as well
+
+        // Add an event listener to the button
+        verifyButton.addEventListener('click', function() {
+            const enteredOtp = otpInput.value;
+
+            // --- IMPORTANT: Here you would typically send the OTP to your backend for verification ---
+            // For now, we'll just simulate a successful verification
+            if (enteredOtp.length === 6) { // Basic client-side check for 6 digits
+                alert('OTP Verified! Redirecting to dashboard...'); // For demonstration
+                window.location.href = 'user-dashboard.html'; // Redirect to the dashboard page
+            } else {
+                alert('Please enter a valid 6-digit OTP.');
+            }
+
+            // In a real application, this would look more like this:
+            
+            fetch('/api/verify-otp', { // Replace with your actual API endpoint
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ otp: enteredOtp, mobileNumber: 'USER_MOBILE_NUMBER' }), // You'd pass the mobile number too
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = 'user-dashboard.html';
+                } else {
+                    alert(data.message || 'OTP verification failed.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred during OTP verification.');
+            });
+            
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Login / Register</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS for Driver Auth Page -->
+    <link rel="stylesheet" href="public/css/driver-auth.css"> <!-- Make sure this path is correct -->
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="driver-auth-wrapper">
+        <div class="driver-auth-container">
+            <div class="driver-auth-header">
+                <h1 class="text-center mb-4">Driver Portal</h1>
+                <div class="nav nav-pills justify-content-center" id="driver-auth-tab" role="tablist">
+                    <button class="nav-link active" id="driver-login-tab" data-bs-toggle="pill" data-bs-target="#driver-login" type="button" role="tab" aria-controls="driver-login" aria-selected="true">Login</button>
+                    <button class="nav-link" id="driver-register-tab" data-bs-toggle="pill" data-bs-target="#driver-register" type="button" role="tab" aria-controls="driver-register" aria-selected="false">Register</button>
+                </div>
+            </div>
+
+            <div class="tab-content" id="driver-auth-tabContent">
+                <!-- Driver Login Form Tab -->
+                <div class="tab-pane fade show active" id="driver-login" role="tabpanel" aria-labelledby="driver-login-tab">
+                    <form class="driver-auth-form">
+                        <h2 class="text-center mb-4">Driver Login</h2>
+                        <div class="mb-3">
+                            <label for="driverLoginEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="driverLoginEmail" placeholder="Enter your driver email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="driverLoginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="driverLoginPassword" placeholder="Enter your password">
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="driverRememberMe">
+                            <label class="form-check-label" for="driverRememberMe">Remember me</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 mb-3">Login as Driver</button>
+                        <p class="text-center">
+                            <a href="#" class="text-decoration-none">Forgot Password?</a>
+                        </p>
+                    </form>
+                </div>
+
+                <!-- Driver Registration Form Tab -->
+                <div class="tab-pane fade" id="driver-register" role="tabpanel" aria-labelledby="driver-register-tab">
+                    <form class="driver-auth-form">
+                        <h2 class="text-center mb-4">Register as a Driver</h2>
+                        <div class="mb-3">
+                            <label for="driverRegisterName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="driverRegisterName" placeholder="Enter your full name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="driverRegisterEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="driverRegisterEmail" placeholder="Enter your email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="driverRegisterPhone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="driverRegisterPhone" placeholder="Enter your phone number">
+                        </div>
+                        <div class="mb-3">
+                            <label for="driverRegisterPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="driverRegisterPassword" placeholder="Create a password">
+                            <small id="driverPasswordHelp" class="form-text text-muted">Minimum 8 characters.</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="driverConfirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="driverConfirmPassword" placeholder="Confirm your password">
+                        </div>
+                        <div class="mb-3">
+                            <label for="driverVehicleType" class="form-label">Vehicle Type</label>
+                            <select class="form-select" id="driverVehicleType">
+                                <option selected>Select vehicle type</option>
+                                <option value="car">Car</option>
+                                <option value="motorcycle">Motorcycle</option>
+                                <option value="van">Van</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="driverLicense" class="form-label">Driver's License Number</label>
+                            <input type="text" class="form-control" id="driverLicense" placeholder="Enter license number">
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="driverTermsCheck">
+                            <label class="form-check-label" for="driverTermsCheck">I agree to the <a href="#">Driver Terms & Conditions</a></label>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100 mb-3">Register as Driver</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle (Popper included) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

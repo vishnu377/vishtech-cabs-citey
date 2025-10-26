@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Vishtech Cabs</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="public/css/user-dashboard.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="https://via.placeholder.com/40x40?text=Logo" alt="Vishtech Cabs Logo" class="me-2 rounded-circle">
+                <span class="fw-bold fs-4 text-primary">Vishtech Cabs</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="user-dashboard.html">My Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="safety.html">Safety</a>
+                    </li>
+                    <li class="nav-item ms-lg-3 dropdown">
+                        <a class="btn btn-outline-primary rounded-pill px-4 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user-circle me-2"></i> Vishnu P.
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#profileSettings" data-bs-toggle="tab">Profile</a></li>
+                            <li><a class="dropdown-item" href="#rideHistory" data-bs-toggle="tab">Ride History</a></li>
+                            <li><a class="dropdown-item" href="#notifications" data-bs-toggle="tab">Notifications</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger" href="index.html">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- User Dashboard Section -->
+    <section class="user-dashboard-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <!-- User Sidebar Navigation -->
+                    <div class="user-sidebar">
+                        <div class="user-profile-header text-center mb-4">
+                            <img src="https://via.placeholder.com/80x80?text=VP" alt="User Avatar" class="rounded-circle mb-2 user-profile-avatar">
+                            <h5 class="mb-0 fw-bold">Welcome, Vishnu P!</h5>
+                            <small>User ID: #US001</small>
+                        </div>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="bookRide-tab" data-bs-toggle="tab" href="#bookRide" role="tab"><i class="fas fa-taxi me-3"></i>Book a Ride</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="currentRideUser-tab" data-bs-toggle="tab" href="#currentRideUser" role="tab"><i class="fas fa-route me-3"></i>Current Ride</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="rideHistory-tab" data-bs-toggle="tab" href="#rideHistory" role="tab"><i class="fas fa-history me-3"></i>Ride History</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profileSettings-tab" data-bs-toggle="tab" href="#profileSettings" role="tab"><i class="fas fa-user-cog me-3"></i>Profile Settings</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="paymentMethods-tab" data-bs-toggle="tab" href="#paymentMethods" role="tab"><i class="fas fa-credit-card me-3"></i>Payment Methods</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="notifications-tab" data-bs-toggle="tab" href="#notifications" role="tab"><i class="fas fa-bell me-3"></i>Notifications</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-danger" href="index.html"><i class="fas fa-sign-out-alt me-3"></i>Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <!-- User Main Content Area -->
+                    <div class="user-main-content">
+                        <div class="tab-content" id="userDashboardTabsContent">
+
+                            <!-- Book a Ride Tab -->
+                            <div class="tab-pane fade show active" id="bookRide" role="tabpanel">
+                                <h3 class="mb-4 fw-bold text-primary">Book a New Ride</h3>
+                                <div class="card p-4 shadow-sm">
+                                    <form id="rideBookingForm">
+                                        <div class="mb-3">
+                                            <label for="pickupLocation" class="form-label">Pickup Location</label>
+                                            <input type="text" class="form-control" id="pickupLocation" placeholder="Enter pickup location" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="dropLocation" class="form-label">Drop Location</label>
+                                            <input type="text" class="form-control" id="dropLocation" placeholder="Enter drop location" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="mouzaInput" class="form-label">Mouza / Landmark (Optional)</label>
+                                            <input type="text" class="form-control" id="mouzaInput" placeholder="Enter Mouza or leave blank">
+                                        </div>
+                                        <div class="mb-4">
+                                            <label class="form-label d-block">Preferred Vehicle Type</label>
+                                            <div class="btn-group" role="group" aria-label="Vehicle Type">
+                                                <input type="radio" class="btn-check" name="vehicleType" id="carType" value="Car" autocomplete="off" checked>
+                                                <label class="btn btn-outline-primary" for="carType"><i class="fas fa-car me-2"></i>Car</label>
+
+                                                <input type="radio" class="btn-check" name="vehicleType" id="autoType" value="Auto" autocomplete="off">
+                                                <label class="btn btn-outline-primary" for="autoType"><i class="fas fa-auto-rickshaw me-2"></i>Auto</label>
+
+                                                <input type="radio" class="btn-check" name="vehicleType" id="bikeType" value="Bike" autocomplete="off">
+                                                <label class="btn btn-outline-primary" for="bikeType"><i class="fas fa-motorcycle me-2"></i>Bike</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="fare-estimation-section mb-4 p-3 border rounded" style="display: none;">
+                                            <h5 class="mb-3">Fare Estimation</h5>
+                                            <p class="mb-1">Estimated Distance: <span id="estDistance" class="fw-bold">--</span></p>
+                                            <p class="mb-1">Estimated Time: <span id="estTime" class="fw-bold">--</span></p>
+                                            <p class="h4 text-success fw-bold">Estimated Fare: <span id="estFare">₹0.00</span></p>
+                                            <button type="button" class="btn btn-outline-primary btn-sm mt-2" id="recalculateFareBtn">Recalculate</button>
+                                        </div>
+
+
+                                        <button type="submit" class="btn btn-primary w-100 rounded-pill py-2"><i class="fas fa-magic me-2"></i> Find Cabs & Book</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- Current Ride Tab -->
+                            <div class="tab-pane fade" id="currentRideUser" role="tabpanel">
+                                <h3 class="mb-4 fw-bold text-primary">Your Current Ride</h3>
+                                <div class="current-ride-info p-4 mb-4" style="display: none;">
+                                    <h5 class="fw-bold">Ride ID: #US2024001</h5>
+                                    <p class="mb-1"><strong>Driver:</strong> Rajesh K. (Auto) <span class="badge bg-warning text-dark ms-2"><i class="fas fa-star"></i> 4.8</span></p>
+                                    <p class="mb-1"><strong>Pickup:</strong> Sector 29, Cyber City</p>
+                                    <p class="mb-1"><strong>Drop:</strong> MG Road Metro Station</p>
+                                    <p class="mb-2"><strong>Fare:</strong> ₹120.00 | <strong>Status:</strong> <span class="badge bg-primary">En Route</span></p>
+                                    <div class="map-placeholder d-flex align-items-center justify-content-center border py-5 mb-3">
+                                        <i class="fas fa-map-marker-alt fa-3x text-secondary me-3"></i> Live Tracking (Google Maps API)
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <button class="btn btn-info rounded-pill px-4"><i class="fas fa-phone-alt me-2"></i>Call Driver</button>
+                                        <button class="btn btn-danger rounded-pill px-4" id="cancelRideBtn"><i class="fas fa-times me-2"></i>Cancel Ride</button>
+                                    </div>
+                                </div>
+                                <div class="alert alert-info text-center" id="noCurrentRideAlert" role="alert">
+                                    You currently have no active rides. Book one now!
+                                </div>
+                            </div>
+
+                            <!-- Ride History Tab -->
+                            <div class="tab-pane fade" id="rideHistory" role="tabpanel">
+                                <h3 class="mb-4 fw-bold text-primary">Your Ride History</h3>
+                                <div class="list-group">
+                                    <div class="list-group-item list-group-item-action flex-column align-items-start mb-3 ride-history-card">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-1 fw-bold">Ride #US2023998</h5>
+                                            <small class="text-muted">Completed on 2024-03-10</small>
+                                        </div>
+                                        <p class="mb-1">From: DLF Cyberhub | To: IFFCO Chowk Metro</p>
+                                        <p class="mb-1">Driver: Sunita D. (Cab) | Fare: ₹180.00</p>
+                                        <div class="d-flex justify-content-between align-items-center mt-2">
+                                            <div>
+                                                <span class="badge bg-success me-2">Paid <i class="fas fa-check"></i></span>
+                                                <span class="badge bg-info text-dark"><i class="fas fa-star"></i> 5.0</span>
+                                            </div>
+                                            <button class="btn btn-outline-primary btn-sm rounded-pill view-receipt-btn" data-ride-id="US2023998"><i class="fas fa-receipt me-2"></i>E-Receipt</button>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item list-group-item-action flex-column align-items-start mb-3 ride-history-card">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-1 fw-bold">Ride #US2023997</h5>
+                                            <small class="text-muted">Completed on 2024-03-05</small>
+                                        </div>
+                                        <p class="mb-1">From: Connaught Place | To: Green Park</p>
+                                        <p class="mb-1">Driver: Amit K. (Bike) | Fare: ₹90.00</p>
+                                        <div class="d-flex justify-content-between align-items-center mt-2">
+                                            <div>
+                                                <span class="badge bg-success me-2">Paid <i class="fas fa-check"></i></span>
+                                                <span class="badge bg-secondary">Not Rated</span>
+                                            </div>
+                                            <button class="btn btn-outline-primary btn-sm rounded-pill view-receipt-btn" data-ride-id="US2023997"><i class="fas fa-receipt me-2"></i>E-Receipt</button>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item list-group-item-action flex-column align-items-start mb-3 ride-history-card">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-1 fw-bold">Ride #US2023996</h5>
+                                            <small class="text-muted">Cancelled on 2024-03-01</small>
+                                        </div>
+                                        <p class="mb-1">From: Home | To: Office</p>
+                                        <p class="mb-1">Driver: N/A | Fare: ₹0.00</p>
+                                        <div class="d-flex justify-content-between align-items-center mt-2">
+                                            <span class="badge bg-danger">Cancelled</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Profile Settings Tab -->
+                            <div class="tab-pane fade" id="profileSettings" role="tabpanel">
+                                <h3 class="mb-4 fw-bold text-primary">Your Profile Settings</h3>
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="userName" class="form-label">Full Name</label>
+                                        <input type="text" class="form-control" id="userName" value="Vishnu P." required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="userEmail" class="form-label">Email Address</label>
+                                        <input type="email" class="form-control" id="userEmail" value="vishnu@gmail.com" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="userMobile" class="form-label">Mobile Number</label>
+                                        <input type="tel" class="form-control" id="userMobile" value="+91 9876543210" disabled>
+                                        <small class="text-muted">Contact support to change mobile number.</small>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="userPassword" class="form-label">Password</label>
+                                        <input type="password" class="form-control" id="userPassword" placeholder="********">
+                                        <small class="text-muted">Leave blank to keep current password.</small>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary rounded-pill"><i class="fas fa-save me-2"></i> Save Changes</button>
+                                </form>
+                            </div>
+
+                            <!-- Payment Methods Tab -->
+                            <div class="tab-pane fade" id="paymentMethods" role="tabpanel">
+                                <h3 class="mb-4 fw-bold text-primary">Manage Payment Methods</h3>
+                                <div class="card p-4 shadow-sm mb-4">
+                                    <h5 class="mb-3">Linked Payment Accounts</h5>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <i class="fab fa-cc-visa me-2 text-primary"></i> **** **** **** 4242 (Visa)
+                                            <button class="btn btn-outline-danger btn-sm">Remove</button>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <i class="fab fa-cc-mastercard me-2 text-warning"></i> **** **** **** 1111 (MasterCard)
+                                            <button class="btn btn-outline-danger btn-sm">Remove</button>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <i class="fas fa-wallet me-2 text-success"></i> UPI: vishnu@bank
+                                            <button class="btn btn-outline-danger btn-sm">Remove</button>
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-outline-primary mt-3 rounded-pill" data-bs-toggle="modal" data-bs-target="#addPaymentModal"><i class="fas fa-plus me-2"></i> Add New Payment Method</button>
+                                </div>
+                                <div class="alert alert-info">
+                                    All payments processed securely via **Razorpay**.
+                                </div>
+                            </div>
+
+                            <!-- Notifications Tab -->
+                            <div class="tab-pane fade" id="notifications" role="tabpanel">
+                                <h3 class="mb-4 fw-bold text-primary">Your Notifications</h3>
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start mb-2">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-1 fw-bold">Your ride is accepted!</h5>
+                                            <small class="text-muted">Just now</small>
+                                        </div>
+                                        <p class="mb-1">Driver Rajesh K. is on their way. ETA: 5 mins.</p>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start mb-2">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-1 fw-bold">Ride #US2023998 completed.</h5>
+                                            <small class="text-muted">1 hour ago</small>
+                                        </div>
+                                        <p class="mb-1">Your ride from DLF Cyberhub to IFFCO Chowk Metro is complete. Fare: ₹180.00.</p>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start mb-2">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-1 fw-bold">New feature alert!</h5>
+                                            <small class="text-muted">Yesterday</small>
+                                        </div>
+                                        <p class="mb-1">You can now book bikes for faster commutes! Try it out.</p>
+                                    </a>
+                                </div>
+                                <button class="btn btn-outline-secondary mt-3 rounded-pill"><i class="fas fa-sync-alt me-2"></i> Load More Notifications</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add Payment Method Modal -->
+    <div class="modal fade" id="addPaymentModal" tabindex="-1" aria-labelledby="addPaymentModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addPaymentModalLabel">Add New Payment Method</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="cardNumber" class="form-label">Card Number</label>
+                            <input type="text" class="form-control" id="cardNumber" placeholder="**** **** **** ****" required>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-6">
+                                <label for="expiryDate" class="form-label">Expiry Date</label>
+                                <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" required>
+                            </div>
+                            <div class="col-6">
+                                <label for="cvv" class="form-label">CVV</label>
+                                <input type="text" class="form-control" id="cvv" placeholder="***" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cardHolderName" class="form-label">Card Holder Name</label>
+                            <input type="text" class="form-control" id="cardHolderName" required>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" value="" id="saveCard">
+                            <label class="form-check-label" for="saveCard">
+                                Save this card for future rides
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 rounded-pill">Add Card</button>
+                    </form>
+                    <hr>
+                    <p class="text-center">Or pay with UPI:</p>
+                    <button class="btn btn-outline-success w-100 rounded-pill"><i class="fas fa-money-bill-wave me-2"></i> Link UPI ID</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer (Reused from your main page) -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center small text-muted">
+            &copy; 2024 Vishtech Cabs. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle (Popper included) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="public/js/user-dashboard.js"></script>
+</body>
+</html>
