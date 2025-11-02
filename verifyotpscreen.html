@@ -2,27 +2,15 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verify OTP</title>
+     <link rel="stylesheet" href="css/bootstrap-5.3.8-dist/css/bootstrap.min.css">
+   <link rel="stylesheet" href="css/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js">
+   <link rel="stylesheet" href="css/style.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -109,7 +97,11 @@
             <label for="otp">Enter OTP</label>
             <input type="text" id="otp" name="otp" maxlength="6" pattern="\d{6}" inputmode="numeric" autocomplete="one-time-code" required>
         </div>
-        <button class="verify-button" id="verifyBtn">Verify & Proceed</button> <!-- Added an ID here -->
+       
+       <a href="userdasbord/user-dashboard.html" class="verify-button" id="verifyBtn">
+  Verify & Proceed
+</a>
+
         <div class="resend-otp">
             Didn't receive the code? <a href="#">Resend OTP</a>
         </div>
@@ -128,7 +120,7 @@
             // For now, we'll just simulate a successful verification
             if (enteredOtp.length === 6) { // Basic client-side check for 6 digits
                 alert('OTP Verified! Redirecting to dashboard...'); // For demonstration
-                window.location.href = 'user-dashboard.html'; // Redirect to the dashboard page
+                window.location.href = 'userdasbord/user-dashboard.html'; // Redirect to the dashboard page
             } else {
                 alert('Please enter a valid 6-digit OTP.');
             }
@@ -145,7 +137,7 @@
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    window.location.href = 'user-dashboard.html';
+                    window.location.href = 'userdasbord/user-dashboard.html';
                 } else {
                     alert(data.message || 'OTP verification failed.');
                 }
@@ -159,3 +151,26 @@
     </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
