@@ -1,12 +1,5 @@
 
 
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,9 +33,7 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="user-dashboard.html">My Dashboard</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="safety.html">Safety</a>
-                    </li>
+                    
                     <li class="nav-item ms-lg-3 dropdown">
                         <a class="btn btn-outline-primary rounded-pill px-4 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fas fa-user-circle me-2"></i> Vishnu P.
@@ -73,15 +64,13 @@
                             <small>User ID: #US001</small>
                         </div>
 
-                        <ul class="nav flex-column">
+                        <ul class="nav flex-column" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" id="bookRide-tab" data-bs-toggle="tab" href="#bookRide" role="tab" aria-controls="bookRide" aria-selected="true"><i class="fas fa-taxi me-3"></i>Book a Ride</a>
                             </li>
-                            <!-- NEW: Book a Parcel Tab Link -->
                             <li class="nav-item">
                                 <a class="nav-link" id="bookParcel-tab" data-bs-toggle="tab" href="#bookParcel" role="tab" aria-controls="bookParcel" aria-selected="false"><i class="fas fa-box me-3"></i>Book a Parcel</a>
                             </li>
-                            
                             <li class="nav-item">
                                 <a class="nav-link" id="currentRideUser-tab" data-bs-toggle="tab" href="#currentRideUser" role="tab" aria-controls="currentRideUser" aria-selected="false"><i class="fas fa-route me-3"></i>Current Ride</a>
                             </li>
@@ -120,13 +109,10 @@
                                             <label for="dropLocation" class="form-label">Drop Location</label>
                                             <input type="text" class="form-control" id="dropLocation" placeholder="Enter drop location" required>
                                         </div>
-                                        <div class="mb-3">
-                                            <label for="mouzaInput" class="form-label">Mouza / Landmark (Optional)</label>
-                                            <input type="text" class="form-control" id="mouzaInput" placeholder="Enter Mouza or leave blank">
-                                        </div>
+
                                         <div class="mb-4">
                                             <label class="form-label d-block">Preferred Vehicle Type</label>
-                                            <div class="btn-group" role="group" aria-label="Vehicle Type">
+                                            <div class="btn-group" role="group" aria-label="Vehicle Type" id="vehicleTypeSelection">
                                                 <input type="radio" class="btn-check" name="vehicleType" id="carType" value="Car" autocomplete="off" checked>
                                                 <label class="btn btn-outline-primary" for="carType"><i class="fas fa-car me-2"></i>Car</label>
 
@@ -138,16 +124,45 @@
                                             </div>
                                         </div>
 
-                                        <div class="fare-estimation-section mb-4 p-3 border rounded" style="display: none;">
+                                        <!-- Fare estimation section (initially hidden) -->
+                                        <div class="fare-estimation-section mb-4 p-3 border rounded" id="fareEstimationSection" style="display: none;">
                                             <h5 class="mb-3">Fare Estimation</h5>
                                             <p class="mb-1">Estimated Distance: <span id="estDistance" class="fw-bold">--</span></p>
                                             <p class="mb-1">Estimated Time: <span id="estTime" class="fw-bold">--</span></p>
                                             <p class="h4 text-success fw-bold">Estimated Fare: <span id="estFare">₹0.00</span></p>
-                                            <button type="button" class="btn btn-outline-primary btn-sm mt-2" id="recalculateFareBtn">Recalculate</button>
+                                            <button type="button" class="btn btn-outline-primary btn-sm mt-2" id="recalculateFareBtn"><i class="fas fa-sync-alt me-2"></i>Recalculate</button>
                                         </div>
 
-                                        <button type="submit" class="btn btn-primary w-100 rounded-pill py-2"><i class="fas fa-magic me-2"></i> Find Cabs & Book</button>
+                                        <button type="submit" class="btn btn-primary w-100 rounded-pill py-2" id="findCabsBtn"><i class="fas fa-magic me-2"></i> Find Cabs & Book</button>
                                     </form>
+
+                                    <!-- NEW: Finding Ride Spinner (Initially hidden) -->
+                                    <div class="finding-ride-spinner mt-4" id="findingRideSpinner" style="display: none;">
+                                        <div class="spinner-border" role="status">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                        <p class="mt-3 fs-5">Finding you the best ride...</p>
+                                        <p class="text-muted">Please wait, this might take a few moments.</p>
+                                    </div>
+
+                                    <!-- NEW: Ride Found Card (Initially hidden) -->
+                                    <div class="ride-found-card mt-4" id="rideFoundCard" style="display: none;">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <img src="https://via.placeholder.com/60x60?text=DK" alt="Driver Avatar" class="rounded-circle me-3 driver-avatar">
+                                            <div>
+                                                <h5 class="mb-0 fw-bold">Driver Found! Dinesh K.</h5>
+                                                <p class="mb-0 text-muted">ETA: <span class="fw-bold text-success">3 mins</span></p>
+                                            </div>
+                                        </div>
+                                        <p class="mb-1 vehicle-details"><strong>Vehicle:</strong> <span id="foundVehicleType">Car</span> (<span id="foundVehicleNumber">DL XX AB 1234</span>)</p>
+                                        <p class="mb-1 vehicle-details"><strong>Rating:</strong> <span class="driver-rating"><i class="fas fa-star"></i> 4.9</span></p>
+                                        <p class="mb-3 fare-details">Final Fare: <span id="finalFare">₹125.00</span></p>
+
+                                        <div class="d-grid gap-2">
+                                            <button type="button" class="btn btn-success rounded-pill py-2" id="confirmRideBtn"><i class="fas fa-check-circle me-2"></i> Confirm Ride</button>
+                                        <!--   <button type="button" class="btn btn-outline-danger rounded-pill py-2" id="cancelFindingBtn"><i class="fas fa-times-circle me-2"></i> Cancel</button>  -->
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -196,18 +211,18 @@
                             <!-- Current Ride Tab -->
                             <div class="tab-pane fade" id="currentRideUser" role="tabpanel" aria-labelledby="currentRideUser-tab">
                                 <h3 class="mb-4 fw-bold text-primary">Your Current Ride</h3>
-                                <div class="current-ride-info p-4 mb-4" style="display: none;">
-                                    <h5 class="fw-bold">Ride ID: #US2024001</h5>
-                                    <p class="mb-1"><strong>Driver:</strong> Rajesh K. (Auto) <span class="badge bg-warning text-dark ms-2"><i class="fas fa-star"></i> 4.8</span></p>
-                                    <p class="mb-1"><strong>Pickup:</strong> Sector 29, Cyber City</p>
-                                    <p class="mb-1"><strong>Drop:</strong> MG Road Metro Station</p>
-                                    <p class="mb-2"><strong>Fare:</strong> ₹120.00 | <strong>Status:</strong> <span class="badge bg-primary">En Route</span></p>
+                                <div class="current-ride-info p-4 mb-4" id="activeRideDetails" style="display: none;">
+                                    <h5 class="fw-bold" id="currentRideID">Ride ID: #US2024001</h5>
+                                    <p class="mb-1"><strong>Driver:</strong> <span id="currentDriverName">Rajesh K.</span> (<span id="currentDriverVehicleType">Auto</span>) <span class="badge bg-warning text-dark ms-2"><i class="fas fa-star"></i> <span id="currentDriverRating">4.8</span></span></p>
+                                    <p class="mb-1"><strong>Pickup:</strong> <span id="currentPickupLocation">Sector 29, Cyber City</span></p>
+                                    <p class="mb-1"><strong>Drop:</strong> <span id="currentDropLocation">MG Road Metro Station</span></p>
+                                    <p class="mb-2"><strong>Fare:</strong> <span id="currentRideFare">₹120.00</span> | <strong>Status:</strong> <span class="badge bg-primary" id="currentRideStatus">En Route</span></p>
                                     <div class="map-placeholder d-flex align-items-center justify-content-center border py-5 mb-3">
                                         <i class="fas fa-map-marker-alt fa-3x text-secondary me-3"></i> Live Tracking (Google Maps API)
                                     </div>
                                     <div class="d-flex justify-content-between">
                                         <button class="btn btn-info rounded-pill px-4"><i class="fas fa-phone-alt me-2"></i>Call Driver</button>
-                                        <button class="btn btn-danger rounded-pill px-4" id="cancelRideBtn"><i class="fas fa-times me-2"></i>Cancel Ride</button>
+                                     <!--  <button class="btn btn-danger rounded-pill px-4" id="cancelActiveRideBtn"><i class="fas fa-times me-2"></i>Cancel Ride</button> -->
                                     </div>
                                 </div>
                                 <div class="alert alert-info text-center" id="noCurrentRideAlert" role="alert">
@@ -397,15 +412,11 @@
 
 
     <!-- Footer (Reused from your main page) -->
-    <footer class="bg-dark text-white py-4 mt-5">
-        <div class="container text-center small text-muted">
-            &copy; 2024 Vishtech Cabs. All rights reserved.
-        </div>
-    </footer>
+    
 
     <!-- Bootstrap JS Bundle (Popper included) -->
     <script src="../css/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <!-- Custom JavaScript -->
     <script src="userjs/user-dashboard.js"></script>
 </body>

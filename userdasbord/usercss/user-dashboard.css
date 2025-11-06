@@ -1,50 +1,38 @@
+
+
+    /* Custom CSS for User Dashboard */
+
 body {
-    background-color: #f0f2f5;
+    background-color: #f8f9fa; /* Light grey background */
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
-.navbar .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
+.navbar {
+    border-bottom: 1px solid #e0e0e0;
 }
 
-.user-dashboard-section {
-    min-height: calc(100vh - 120px); /* Adjust based on navbar/footer height */
-    padding: 40px 0;
+.navbar-brand .text-primary {
+    color: #007bff !important; /* Bootstrap primary blue */
 }
+
+/* User Sidebar */
 .user-sidebar {
-    background-color: #fff;
-    border-radius: 1rem;
+    background-color: #ffffff;
+    border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    min-height: calc(100vh - 180px); /* Adjust based on navbar/footer height */
 }
-.user-sidebar .nav-link {
-    color: #333;
-    padding: 12px 15px;
-    border-radius: 0.5rem;
-    margin-bottom: 8px;
-    transition: all 0.2s ease;
-}
-.user-sidebar .nav-link.active,
-.user-sidebar .nav-link:hover {
-    background-color: #007bff; /* Primary blue for User */
-    color: #fff;
-}
-.user-sidebar .nav-link i {
-    width: 25px;
-}
-.user-main-content {
-    background-color: #fff;
-    border-radius: 1rem;
-    padding: 30px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-}
+
 .user-profile-header {
     background: linear-gradient(to right, #007bff, #6dd5ed); /* Blue gradient for user */
     color: #fff;
     padding: 20px;
     border-radius: 0.75rem;
     margin-bottom: 20px;
+    text-align: center;
 }
+
 .user-profile-avatar {
     width: 80px;
     height: 80px;
@@ -53,62 +41,185 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Book a Ride specific styles */
-#rideBookingForm .form-control {
-    border-radius: 0.5rem;
+.user-sidebar .nav-link {
+    color: #343a40;
     padding: 12px 15px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
 }
 
-#rideBookingForm .btn-group .btn {
-    border-radius: 0.5rem;
-    padding: 10px 20px;
+.user-sidebar .nav-link i {
+    font-size: 1.1rem;
+    width: 25px; /* Fixed width for icons */
+    text-align: center;
 }
 
-#rideBookingForm .btn-group .btn-check:checked + .btn-outline-primary {
+.user-sidebar .nav-link:hover,
+.user-sidebar .nav-link.active {
+    background-color: #e9f5ff;
+    color: #007bff;
+    font-weight: 500;
+}
+
+.user-sidebar .nav-link.text-danger:hover {
+    background-color: #fce4e4;
+    color: #dc3545 !important;
+}
+
+/* Main Content Area */
+.user-main-content {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.user-dashboard-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #495057;
+}
+
+/* Vehicle Type Button Group Customization */
+.btn-group .btn-check + .btn {
+    border-radius: 0.5rem; /* Slightly rounded corners */
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-group .btn-check:checked + .btn {
     background-color: #007bff;
     color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
+    border-color: #007bff;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 123, 255, 0.2);
+}
+
+.btn-group .btn-outline-primary:hover {
+    background-color: #e9f5ff;
+    color: #007bff;
 }
 
 .fare-estimation-section {
-    background-color: #eaf6ff;
-    border-color: #cce5ff !important;
-    border-radius: 0.75rem;
+    background-color: #f8f9fa;
+    border-left: 5px solid #007bff;
+    border-radius: 8px;
 }
 
-/* Current Ride specific styles */
-.current-ride-info {
-    background-color: #e2f0fd;
+.ride-history-card {
     border-left: 5px solid #007bff;
-    padding: 15px;
-    border-radius: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
 }
+
+.ride-history-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.09);
+}
+
 .map-placeholder {
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
-    border-radius: 0.5rem;
-    height: 250px; /* Adjust as needed */
+    height: 200px;
+    background-color: #e9ecef;
+    border-radius: 8px;
     color: #6c757d;
 }
 
-/* Ride History specific styles */
-.ride-history-card {
-    border-radius: 0.75rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    transition: all 0.2s ease;
-    border: none;
-}
-.ride-history-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+/* NEW: Styles for the "Finding Ride" spinner and "Ride Found" card */
+.finding-ride-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    text-align: center;
+    color: #6c757d;
 }
 
-/* Payment Methods specific styles */
-#paymentMethods .list-group-item {
-    border-radius: 0.5rem;
-    margin-bottom: 8px;
-    border: 1px solid #e9ecef;
+.finding-ride-spinner .spinner-border {
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 15px;
+    color: #007bff;
 }
-#paymentMethods .list-group-item:last-child {
-    margin-bottom: 0;
+
+.ride-found-card {
+    border-left: 5px solid #28a745; /* Green for success */
+    border-radius: 8px;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.09);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.ride-found-card .driver-avatar {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border: 2px solid #28a745;
+}
+
+.ride-found-card .driver-rating {
+    background-color: #ffc107;
+    color: #343a40;
+    font-size: 0.85rem;
+    padding: 0.25em 0.6em;
+    border-radius: 0.375rem;
+}
+
+.ride-found-card .vehicle-details {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.ride-found-card .fare-details {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #28a745;
+}
+
+.ride-found-card .btn {
+    font-weight: 500;
+}
+
+.no-rides-yet {
+    text-align: center;
+    padding: 50px;
+    color: #6c757d;
+}
+
+/* Specific styles for current ride tab */
+.current-ride-info {
+    border-left: 5px solid #007bff; /* Blue for active ride */
+    border-radius: 8px;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.09);
+}
+
+/* Modal specific styles */
+#addPaymentModal .modal-content {
+    border-radius: 10px;
+}
+
+#addPaymentModal .modal-header {
+    border-bottom: none;
+}
+
+#addPaymentModal .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+#addPaymentModal .btn-outline-success {
+    color: #28a745;
+    border-color: #28a745;
+}
+
+#addPaymentModal .btn-outline-success:hover {
+    background-color: #28a745;
+    color: #fff;
 }
