@@ -1,0 +1,378 @@
+/* General Body and Container Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #007bff; /* Primary brand color */
+    color: #fff;
+    border: 1px solid #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d; /* Secondary button color */
+    color: #fff;
+    border: 1px solid #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+
+/* Hero Section - About Us */
+.hero-about {
+    background: url('https://via.placeholder.com/1600x400/007bff/ffffff?text=APNA+BILASPUR,+APNI+RIDE') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+}
+
+.hero-about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay for readability */
+    z-index: 1;
+}
+
+.hero-about .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-about h1 {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+}
+
+.hero-about p {
+    font-size: 1.5em;
+    opacity: 0.9;
+}
+
+/* About Content Section */
+.about-content {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.about-content .content-block {
+    margin-bottom: 40px;
+    padding: 30px;
+    background-color: #fcfcfc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.about-content h2 {
+    color: #007bff; /* Primary brand color */
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.about-content p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+.about-content .values {
+    text-align: center;
+}
+
+.about-content .value-items {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.about-content .value-item {
+    flex: 1;
+    min-width: 220px;
+    margin: 15px;
+    padding: 25px;
+    background-color: #e9f5ff; /* Lighter shade of primary */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.about-content .value-item:hover {
+    transform: translateY(-5px);
+}
+
+.about-content .value-item i {
+    font-size: 3em;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.about-content .value-item h3 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.about-content .value-item p {
+    font-size: 0.95em;
+    color: #555;
+    text-align: center;
+}
+
+
+/* Team Section */
+.team-section {
+    background-color: #f1f7fc; /* Light background for contrast */
+    padding: 60px 0;
+    text-align: center;
+}
+
+.team-section h2 {
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+}
+
+.team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.team-member {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    width: 280px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-8px);
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 4px solid #007bff;
+}
+
+.team-member h3 {
+    font-size: 1.6em;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.team-member p {
+    color: #666;
+    font-size: 1.1em;
+}
+
+/* Call to Action Section */
+.call-to-action {
+    background-color: #007bff; /* Primary brand color */
+    color: #fff;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.call-to-action h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.call-to-action p {
+    font-size: 1.3em;
+    margin-bottom: 40px;
+}
+
+.call-to-action .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.call-to-action .btn {
+    padding: 15px 35px;
+    font-size: 1.1em;
+    border-radius: 7px;
+}
+
+.call-to-action .btn-primary {
+    background-color: #fff;
+    color: #007bff;
+    border: 2px solid #fff;
+}
+
+.call-to-action .btn-primary:hover {
+    background-color: #e6e6e6;
+    color: #0056b3;
+}
+
+.call-to-action .btn-secondary {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.call-to-action .btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* Footer */
+footer {
+    background-color: #212529; /* Dark background from contact page footer */
+    color: #f8f9fa;
+    padding: 50px 0;
+    font-size: 0.95em;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.footer-col h3 {
+    color: #007bff; /* Primary color for headings */
+    margin-bottom: 20px;
+    font-size: 1.3em;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #f8f9fa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #007bff;
+}
+
+.footer-col .social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.footer-col .social-icons a {
+    color: #f8f9fa;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+.footer-col .social-icons a:hover {
+    color: #007bff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        display: none; /* Hide nav links on smaller screens, could add a hamburger menu */
+    }
+
+    .navbar .container {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .navbar .logo {
+        margin-bottom: 15px;
+    }
+
+    .hero-about h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-about p {
+        font-size: 1.2em;
+    }
+
+    .about-content .value-items {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-content .value-item {
+        width: 80%;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .call-to-action h2 {
+        font-size: 2.2em;
+    }
+
+    .call-to-action p {
+        font-size: 1em;
+    }
+
+    .call-to-action .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-col .social-icons {
+        justify-content: center;
+    }
+}

@@ -7,20 +7,30 @@
     <title>Vishtech Cabs - Your City, Your Ride</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap-5.3.8-dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js" />
+
+    <script src="css/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/bootstrap-5.3.8-dist/css/bootstrap.min.css" />
-    <script src="css/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
-    
     <!-- Navbar -->
     <div id="header"></div>
+
     
+    <!-- New Bilaspur Hero Section -->
+    <section class="bilaspur-hero-section d-flex align-items-center justify-content-center text-center text-white">
+        <div class="container">
+            <h1 class="display-3 fw-bold mb-3 animated fadeInDown">APNA BILASPUR, APNI RIDE</h1>
+            <p class="lead mb-4 animated fadeInUp">Connecting You to Every Corner</p>
+            <!-- You can add a button here if needed -->
+            <!-- <a href="#" class="btn btn-primary btn-lg rounded-pill animated zoomIn">Explore Rides</a> -->
+        </div>
+    </section>
+    <!-- End New Bilaspur Hero Section -->
 
     <!-- Hero Section: Login/Signup & Illustration -->
     <section class="hero-section d-flex align-items-center justify-content-center pt-5 pb-5">
@@ -31,7 +41,7 @@
                         <div class="row g-0">
                             <div class="col-md-6 d-flex flex-column justify-content-center p-3 p-md-4">
                                 <h2 class="text-center mb-4 fw-bold text-primary">
-                                    Join the Vishtech Cabs Community
+                                    Join the MKV gramin wholesale and retail transport
                                 </h2>
 
                                 <div class="d-flex justify-content-center mb-4">
@@ -44,19 +54,17 @@
                                 </div>
 
                                 <!-- User Login Form (Simplified for homepage) -->
-                                 
-
-
-
-
-
-
 
                                 <form class="auth-form login-form" id="homepageUserLoginForm">
                                     <div class="mb-3">
                                         <label for="userName" class="form-label">Name</label>
-                                        <input type="text" class="form-control" id="userMobile"
+                                        <input type="text" class="form-control" id="userName"
                                             placeholder="Enter your name" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="userGmail" class="form-label">Gmail</label>
+                                        <input type="text" class="form-control" id="userGmail"
+                                            placeholder="Enter your gmail opesional" />
                                     </div>
                                     <div class="mb-3">
                                         <label for="userMobilenumber" class="form-label">Mobile Number</label>
@@ -64,13 +72,12 @@
                                             placeholder="1234567890" />
                                     </div>
 
-                                    <button type="button"  id="loginModalLabel" class="btn btn-primary w-100 rounded-pill py-2 mb-3"
+                                    <button type="button" id="loginModalLabel"
+                                        class="btn btn-primary w-100 rounded-pill py-2 mb-3"
                                         onclick="window.location.href='verifyotpscreen.html'">
                                         <i class="fas fa-lock me-2"></i> Login / Get OTP
                                     </button>
-                                    
                                 </form>
-                                
                             </div>
                             <div class="col-md-6 d-none d-md-block auth-illustration">
                                 <img src="img/WhatsApp_Image_2025-10-29_at_2.21.17_PM-removebg-preview.png"
@@ -128,17 +135,12 @@
                                         <input type="text" class="form-control" id="dropLocationRide"
                                             placeholder="Enter drop location" />
                                     </div>
-                                    <div class="mb-4">
-                                       
-                                       
-                                    </div>
-                                   
+                                    <div class="mb-4"></div>
 
-
-                                     
-                               <button type="submit" class="btn btn-warning w-100 rounded-pill py-2 text-dark" data-bs-toggle="modal" data-bs-target="#loginModal">
-    <i class="fas fa-search me-2"></i> Search & Book Ride
-</button>
+                                    <button type="submit" class="btn btn-warning w-100 rounded-pill py-2 text-dark"
+                                        data-bs-toggle="modal" data-bs-target="#loginModal">
+                                        <i class="fas fa-search me-2"></i> Search & Book Ride
+                                    </button>
                                 </form>
                             </div>
 
@@ -171,10 +173,11 @@
                                         <input type="number" class="form-control" id="parcelWeight"
                                             placeholder="e.g., 2.5" />
                                     </div>
-                                    
-                                    <button type="submit" class="btn btn-warning w-100 rounded-pill py-2 text-dark" data-bs-toggle="modal" data-bs-target="#loginModal">
-    <i class="fas fa-search me-2"></i> Search & Book Ride
-</button>
+
+                                    <button type="submit" class="btn btn-warning w-100 rounded-pill py-2 text-dark"
+                                        data-bs-toggle="modal" data-bs-target="#loginModal">
+                                        <i class="fas fa-search me-2"></i> Search & Book Ride
+                                    </button>
                                 </form>
                             </div>
                         </div>
@@ -304,18 +307,25 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-4">
+               <div class="col-md-4">
                     <div class="card service-card h-100 text-center p-4">
-                        <img src="https://via.placeholder.com/60x60?text=App" class="mx-auto mb-3"
-                            alt="Download Our App" />
-                        <h5 class="fw-bold mb-3">Download Our App</h5>
-                        <p class="small">Get the best experience on mobile.</p>
-                        <div class="d-flex justify-content-center mt-3">
-                            <a href="#" class="me-2"><img src="https://via.placeholder.com/120x40?text=GooglePlay"
-                                    alt="Google Play Store" class="img-fluid app-store-btn" /></a>
-                            <a href="#"><img src="https://via.placeholder.com/120x40?text=AppleStore"
-                                    alt="Apple App Store" class="img-fluid app-store-btn" /></a>
-                        </div>
+                        <img src="img/WhatsApp_Image_2025-10-29_at_2.21.17_PM-removebg-preview.png"
+                            class="mx-auto mb-3" alt="Safety First" />
+                        <h5 class="fw-bold mb-3">easy transpot</h5>
+                        <ul class="list-unstyled text-start small">
+                            <li>
+                                <i class="fas fa-check-circle text-primary me-2"></i> Earn money
+                                Drivers
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle text-primary me-2"></i> Secure
+                                Payments
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle text-primary me-2"></i> Book users cab 
+                                Support
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
