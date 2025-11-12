@@ -15,6 +15,15 @@ body {
     color: #007bff !important; /* Bootstrap primary blue */
 }
 
+
+.navbar-brand img {
+    width: 45px; /* Slightly larger for better visibility in navbar */
+    height: 45px;
+    object-fit: cover;
+    margin-right: 10px !important; /* Adjusted margin */
+    border-radius: 50%; /* Ensure it stays perfectly round */
+}
+
 /* User Sidebar */
 .user-sidebar {
     background-color: #ffffff;

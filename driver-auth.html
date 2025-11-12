@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Driver Login / Register</title>
     <!-- Bootstrap CSS -->
-     <link rel="stylesheet" href="css/bootstrap-5.3.8-dist/css/bootstrap.min.css">
-   <script src="css/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
-   
+    <link rel="stylesheet" href="css/bootstrap-5.3.8-dist/css/bootstrap.min.css">
     <!-- Custom CSS for Driver Auth Page -->
     <link rel="stylesheet" href="css/driver-auth.css"> <!-- Make sure this path is correct -->
     <!-- Font Awesome for icons -->
@@ -44,8 +43,8 @@
                         </div>
                         
                         <button type="button" class="btn btn-primary w-100 mb-3" onclick="window.location.href='driverdasbord/driver-dashboard.html'">
-  Login as Driver
-</button>
+                            Login as Driver
+                        </button>
 
                         <p class="text-center">
                             <a href="#" class="text-decoration-none">Forgot Password?</a>
@@ -55,59 +54,223 @@
 
                 <!-- Driver Registration Form Tab -->
                 <div class="tab-pane fade" id="driver-register" role="tabpanel" aria-labelledby="driver-register-tab">
-                    <form class="driver-auth-form">
+                    <form class="driver-auth-form" id="driverRegistrationForm">
                         <h2 class="text-center mb-4">Register as a Driver</h2>
-                        <div class="mb-3">
-                            <label for="driverRegisterName" class="form-label">Full Name</label>
-                            <input type="text" class="form-control" id="driverRegisterName" placeholder="Enter your full name">
+                        
+                        <!-- Step 1: Driver Details -->
+                        <div class="registration-step" id="step1">
+                            <h3 class="mb-3">Step 1 of 2: Driver Details</h3>
+                            <div class="mb-3">
+                                <label for="driverRegisterName" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="driverRegisterName" placeholder="Enter your full name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="driverRegisterEmail" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="driverRegisterEmail" placeholder="Enter your email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="driverRegisterPhone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="driverRegisterPhone" placeholder="Enter your phone number">
+                            </div>
+                            <div class="mb-3">
+                                <label for="driverRegisterPassword" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="driverRegisterPassword" placeholder="Create a password">
+                                <small id="driverPasswordHelp" class="form-text text-muted">Minimum 8 characters.</small>
+                            </div>
+                            <div class="mb-3">
+                                <label for="driverConfirmPassword" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" id="driverConfirmPassword" placeholder="Confirm your password">
+                            </div>
+                            <div class="mb-3">
+                                <label for="driverLicenseNumber" class="form-label">Driver's License Number</label>
+                                <input type="text" class="form-control" id="driverLicenseNumber" placeholder="Enter license number">
+                            </div>
+                            <div class="mb-3">
+                                <label for="driverAadharcard" class="form-label">Driver's Aadhar Card Number</label>
+                                <input type="text" class="form-control" id="driverAadharcard" placeholder="Enter Aadhar card number">
+                            </div>
+                            <div class="mb-3">
+                                <label for="driverPancard" class="form-label">Driver's Pan Card Number</label>
+                                <input type="text" class="form-control" id="driverPancard" placeholder="Enter Pan card number">
+                            </div>
+                             <div class="mb-3">
+                                <label for="driverAddress" class="form-label">Driver's Address</label>
+                                <input type="text" class="form-control" id="driverAddress" placeholder="Enter your address">
+                            </div>
+
+                            <h4 class="mt-4">Driver's Profile Picture</h4>
+                            <div class="mb-3 image-upload-section">
+                                <div class="image-upload-box">
+                                    <input type="file" class="form-control d-none" id="driverProfilePicUpload" accept="image/*">
+                                    <label for="driverProfilePicUpload" class="btn btn-outline-primary"><i class="fas fa-upload me-2"></i> Choose File</label>
+                                    <button type="button" class="btn btn-outline-secondary ms-2" onclick="capturePhoto('driverProfilePicCamera')"><i class="fas fa-camera me-2"></i> Take Photo</button>
+                                    <div class="preview-placeholder mt-2" id="driverProfilePicPreview">
+                                        <i class="fas fa-user-circle fa-4x text-muted"></i>
+                                        <p class="text-muted">No image selected</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h4 class="mt-4">Upload Driver Documents</h4>
+                            <div class="row mb-3">
+                                <!-- Driver's License (Front) -->
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Driver's License (Front)</label>
+                                    <div class="image-upload-box">
+                                        <input type="file" class="form-control d-none" id="licenseFrontUpload" accept="image/*">
+                                        <label for="licenseFrontUpload" class="btn btn-outline-primary btn-sm"><i class="fas fa-upload me-2"></i> Choose File</label>
+                                        <button type="button" class="btn btn-outline-secondary btn-sm ms-2" onclick="capturePhoto('licenseFrontCamera')"><i class="fas fa-camera me-2"></i> Take Photo</button>
+                                        <div class="preview-placeholder mt-2" id="licenseFrontPreview">
+                                            <i class="fas fa-id-card fa-3x text-muted"></i>
+                                            <p class="text-muted small">Front Side</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Driver's License (Back) -->
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Driver's License (Back)</label>
+                                    <div class="image-upload-box">
+                                        <input type="file" class="form-control d-none" id="licenseBackUpload" accept="image/*">
+                                        <label for="licenseBackUpload" class="btn btn-outline-primary btn-sm"><i class="fas fa-upload me-2"></i> Choose File</label>
+                                        <button type="button" class="btn btn-outline-secondary btn-sm ms-2" onclick="capturePhoto('licenseBackCamera')"><i class="fas fa-camera me-2"></i> Take Photo</button>
+                                        <div class="preview-placeholder mt-2" id="licenseBackPreview">
+                                            <i class="fas fa-id-card fa-3x text-muted"></i>
+                                            <p class="text-muted small">Back Side</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Aadhar Card (Front) -->
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Aadhar Card (Front)</label>
+                                    <div class="image-upload-box">
+                                        <input type="file" class="form-control d-none" id="aadharFrontUpload" accept="image/*">
+                                        <label for="aadharFrontUpload" class="btn btn-outline-primary btn-sm"><i class="fas fa-upload me-2"></i> Choose File</label>
+                                        <button type="button" class="btn btn-outline-secondary btn-sm ms-2" onclick="capturePhoto('aadharFrontCamera')"><i class="fas fa-camera me-2"></i> Take Photo</button>
+                                        <div class="preview-placeholder mt-2" id="aadharFrontPreview">
+                                            <i class="fas fa-address-card fa-3x text-muted"></i>
+                                            <p class="text-muted small">Front Side</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Aadhar Card (Back) -->
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Aadhar Card (Back)</label>
+                                    <div class="image-upload-box">
+                                        <input type="file" class="form-control d-none" id="aadharBackUpload" accept="image/*">
+                                        <label for="aadharBackUpload" class="btn btn-outline-primary btn-sm"><i class="fas fa-upload me-2"></i> Choose File</label>
+                                        <button type="button" class="btn btn-outline-secondary btn-sm ms-2" onclick="capturePhoto('aadharBackCamera')"><i class="fas fa-camera me-2"></i> Take Photo</button>
+                                        <div class="preview-placeholder mt-2" id="aadharBackPreview">
+                                            <i class="fas fa-address-card fa-3x text-muted"></i>
+                                            <p class="text-muted small">Back Side</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="driverTermsCheck">
+                                <label class="form-check-label" for="driverTermsCheck">I agree to the <a href="#">Driver Terms & Conditions</a></label>
+                            </div>
+                            <button type="button" class="btn btn-success w-100 mb-3" onclick="nextStep()">Next Step</button>
                         </div>
-                        <div class="mb-3">
-                            <label for="driverRegisterEmail" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="driverRegisterEmail" placeholder="Enter your email">
+
+                        <!-- Step 2: Vehicle Details -->
+                        <div class="registration-step" id="step2" style="display: none;">
+                            <h3 class="mb-3">Step 2 of 2: Vehicle Details</h3>
+                            <div class="mb-3">
+                                <label for="driverVehicleType" class="form-label">Vehicle Type</label>
+                                <select class="form-select" id="driverVehicleType">
+                                    <option selected>Select vehicle type</option>
+                                    <option value="car">Car</option>
+                                    <option value="motorcycle">Motorcycle</option>
+                                    <option value="van">Van</option>
+                                    <option value="e-riksha">e-riksha</option>
+                                    <option value="mini-truks">mini-truks</option>
+                                    <option value="others">others</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="vehicleMake" class="form-label">Vehicle Make</label>
+                                <input type="text" class="form-control" id="vehicleMake" placeholder="e.g., Toyota, Honda">
+                            </div>
+                            <div class="mb-3">
+                                <label for="vehicleModel" class="form-label">Vehicle Model</label>
+                                <input type="text" class="form-control" id="vehicleModel" placeholder="e.g., Camry, Civic">
+                            </div>
+                            <div class="mb-3">
+                                <label for="vehicleYear" class="form-label">Vehicle Year</label>
+                                <input type="number" class="form-control" id="vehicleYear" placeholder="e.g., 2020">
+                            </div>
+                            <div class="mb-3">
+                                <label for="vehiclePlateNumber" class="form-label">Vehicle Plate Number</label>
+                                <input type="text" class="form-control" id="vehiclePlateNumber" placeholder="Enter vehicle plate number">
+                            </div>
+                            <div class="mb-3">
+                                <label for="vehicleRCNumber" class="form-label">Vehicle RC Number</label>
+                                <input type="text" class="form-control" id="vehicleRCNumber" placeholder="Enter RC number">
+                            </div>
+
+                            <h4 class="mt-4">Upload Vehicle Documents</h4>
+                            <div class="row mb-3">
+                                <!-- Vehicle RC (Front) -->
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Vehicle RC (Front)</label>
+                                    <div class="image-upload-box">
+                                        <input type="file" class="form-control d-none" id="rcFrontUpload" accept="image/*">
+                                        <label for="rcFrontUpload" class="btn btn-outline-primary btn-sm"><i class="fas fa-upload me-2"></i> Choose File</label>
+                                        <button type="button" class="btn btn-outline-secondary btn-sm ms-2" onclick="capturePhoto('rcFrontCamera')"><i class="fas fa-camera me-2"></i> Take Photo</button>
+                                        <div class="preview-placeholder mt-2" id="rcFrontPreview">
+                                            <i class="fas fa-file-alt fa-3x text-muted"></i>
+                                            <p class="text-muted small">RC Front</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Vehicle RC (Back) -->
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Vehicle RC (Back)</label>
+                                    <div class="image-upload-box">
+                                        <input type="file" class="form-control d-none" id="rcBackUpload" accept="image/*">
+                                        <label for="rcBackUpload" class="btn btn-outline-primary btn-sm"><i class="fas fa-upload me-2"></i> Choose File</label>
+                                        <button type="button" class="btn btn-outline-secondary btn-sm ms-2" onclick="capturePhoto('rcBackCamera')"><i class="fas fa-camera me-2"></i> Take Photo</button>
+                                        <div class="preview-placeholder mt-2" id="rcBackPreview">
+                                            <i class="fas fa-file-alt fa-3x text-muted"></i>
+                                            <p class="text-muted small">RC Back</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Vehicle Insurance -->
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Vehicle Insurance</label>
+                                    <div class="image-upload-box">
+                                        <input type="file" class="form-control d-none" id="insuranceUpload" accept="image/*">
+                                        <label for="insuranceUpload" class="btn btn-outline-primary btn-sm"><i class="fas fa-upload me-2"></i> Choose File</label>
+                                        <button type="button" class="btn btn-outline-secondary btn-sm ms-2" onclick="capturePhoto('insuranceCamera')"><i class="fas fa-camera me-2"></i> Take Photo</button>
+                                        <div class="preview-placeholder mt-2" id="insurancePreview">
+                                            <i class="fas fa-car-crash fa-3x text-muted"></i>
+                                            <p class="text-muted small">Insurance Doc</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Vehicle Permit (if applicable) -->
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Vehicle Permit (Optional)</label>
+                                    <div class="image-upload-box">
+                                        <input type="file" class="form-control d-none" id="permitUpload" accept="image/*">
+                                        <label for="permitUpload" class="btn btn-outline-primary btn-sm"><i class="fas fa-upload me-2"></i> Choose File</label>
+                                        <button type="button" class="btn btn-outline-secondary btn-sm ms-2" onclick="capturePhoto('permitCamera')"><i class="fas fa-camera me-2"></i> Take Photo</button>
+                                        <div class="preview-placeholder mt-2" id="permitPreview">
+                                            <i class="fas fa-id-badge fa-3x text-muted"></i>
+                                            <p class="text-muted small">Permit Doc</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between mt-4">
+                                <button type="button" class="btn btn-secondary" onclick="prevStep()"><i class="fas fa-arrow-left me-2"></i> Previous Step</button>
+                                <button type="submit" class="btn btn-success"><i class="fas fa-check-circle me-2"></i> Complete Registration</button>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="driverRegisterPhone" class="form-label">Phone Number</label>
-                            <input type="tel" class="form-control" id="driverRegisterPhone" placeholder="Enter your phone number">
-                        </div>
-                        <div class="mb-3">
-                            <label for="driverRegisterPassword" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="driverRegisterPassword" placeholder="Create a password">
-                            <small id="driverPasswordHelp" class="form-text text-muted">Minimum 8 characters.</small>
-                        </div>
-                        <div class="mb-3">
-                            <label for="driverConfirmPassword" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" id="driverConfirmPassword" placeholder="Confirm your password">
-                        </div>
-                        <div class="mb-3">
-                            <label for="driverVehicleType" class="form-label">Vehicle Type</label>
-                            <select class="form-select" id="driverVehicleType">
-                                <option selected>Select vehicle type</option>
-                                <option value="car">Car</option>
-                                <option value="motorcycle">Motorcycle</option>
-                                <option value="van">Van</option>
-                                <option value="e-riksha">e-riksha</option>
-                                <option value="mini-truks">mini-truks</option>
-                                <option value="mini-truks">others</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="driverLicense" class="form-label">Driver's License Number</label>
-                            <input type="text" class="form-control" id="driverLicense" placeholder="Enter license number">
-                            <label for="vehicalRc" class="form-label">vechical Rc number</label>
-                            <input type="text" class="form-control" id="vehicalRc" placeholder="Enter rc number">
-                            <label for="driverAadharcard" class="form-label">Driver's Aadhar card  Number</label>
-                            <input type="text" class="form-control" id="driverAadharcard" placeholder="Enter Aadhar card number">
-                            <label for="driverPancard" class="form-label">Driver's Pan card  Number</label>
-                            <input type="text" class="form-control" id="driverPancard" placeholder="Enter Pan card number">
-                             <label for="driverAdrres" class="form-label">Driver's addres</label>
-                            <input type="text" class="form-control" id="driverAdrees" placeholder="Enter your adrees">
-                        </div>
-                        </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="driverTermsCheck">
-                            <label class="form-check-label" for="driverTermsCheck">I agree to the <a href="#">Driver Terms & Conditions</a></label>
-                        </div>
-                        <button type="submit" class="btn btn-success w-100 mb-3">Register as Driver</button>
                     </form>
                 </div>
             </div>
@@ -115,5 +278,69 @@
     </div>
 
     <!-- Bootstrap JS Bundle (Popper included) -->
-   
+    <script src="css/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let currentStep = 1;
+
+        function showStep(step) {
+            document.querySelectorAll('.registration-step').forEach(s => s.style.display = 'none');
+            document.getElementById('step' + step).style.display = 'block';
+            currentStep = step;
+        }
+
+        function nextStep() {
+            // Add validation here if needed for step 1
+            showStep(currentStep + 1);
+        }
+
+        function prevStep() {
+            showStep(currentStep - 1);
+        }
+
+        // Image preview logic
+        document.querySelectorAll('input[type="file"]').forEach(input => {
+            input.addEventListener('change', function(event) {
+                const previewId = this.id.replace('Upload', 'Preview');
+                const previewElement = document.getElementById(previewId);
+                if (this.files && this.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        previewElement.innerHTML = `<img src="${e.target.result}" class="img-fluid rounded" alt="Image preview">`;
+                    };
+                    reader.readAsDataURL(this.files[0]);
+                } else {
+                    // Reset to placeholder if no file selected
+                    const iconClass = previewId.includes('ProfilePic') ? 'fas fa-user-circle fa-4x' : 
+                                      previewId.includes('license') ? 'fas fa-id-card fa-3x' :
+                                      previewId.includes('aadhar') ? 'fas fa-address-card fa-3x' :
+                                      previewId.includes('rc') ? 'fas fa-file-alt fa-3x' :
+                                      previewId.includes('insurance') ? 'fas fa-car-crash fa-3x' :
+                                      previewId.includes('permit') ? 'fas fa-id-badge fa-3x' : '';
+                    const text = previewId.includes('ProfilePic') ? 'No image selected' :
+                                 previewId.includes('licenseFront') ? 'Front Side' :
+                                 previewId.includes('licenseBack') ? 'Back Side' :
+                                 previewId.includes('aadharFront') ? 'Front Side' :
+                                 previewId.includes('aadharBack') ? 'Back Side' :
+                                 previewId.includes('rcFront') ? 'RC Front' :
+                                 previewId.includes('rcBack') ? 'RC Back' :
+                                 previewId.includes('insurance') ? 'Insurance Doc' :
+                                 previewId.includes('permit') ? 'Permit Doc' : '';
+                    previewElement.innerHTML = `<i class="${iconClass} text-muted"></i><p class="text-muted small">${text}</p>`;
+                }
+            });
+        });
+
+        // Function to simulate camera capture (in a real app, this would open the camera)
+        function capturePhoto(inputId) {
+            alert("This would open the camera for " + inputId.replace('Camera', '') + " in a real application!");
+            // For demonstration, you might want to programmatically click the file input
+            // document.getElementById(inputId.replace('Camera', 'Upload')).click();
+        }
+
+        // Initial step display
+        document.addEventListener('DOMContentLoaded', () => {
+            showStep(1);
+        });
+    </script>
+</body>
 </html>
