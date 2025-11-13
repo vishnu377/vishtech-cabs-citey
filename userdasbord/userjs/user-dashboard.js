@@ -1,6 +1,10 @@
 
 
 
+
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     // --- Elements for Ride Booking & Fare Estimation ---
     const pickupLocationInput = document.getElementById('pickupLocation');
