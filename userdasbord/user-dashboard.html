@@ -37,7 +37,7 @@
                     <li class="nav-item ms-lg-3 dropdown">
                         <a class="btn btn-outline-primary rounded-pill px-4 dropdown-toggle" href="#"
                             id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-user-circle me-2"></i> Vishnu P.
+                            <i class="fas fa-user-circle me-2"></i> Vishnu 
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li>
@@ -53,7 +53,7 @@
                                 <hr class="dropdown-divider" />
                             </li>
                             <li>
-                                <a class="dropdown-item text-danger" href="index.html">Logout</a>
+                                <a class="dropdown-item text-danger" href="../userdasbord/index.html">Logout</a>
                             </li>
                         </ul>
                     </li>
@@ -70,22 +70,23 @@
                     <!-- User Sidebar Navigation -->
                     <div class="user-sidebar">
                         <div class="user-profile-header text-center mb-4">
-                            <img src="https://via.placeholder.com/80x80?text=VP" alt="User Avatar"
+                            <img src="../img/mkv gramin logo.png" alt="User mkv"
                                 class="rounded-circle mb-2 user-profile-avatar" />
                             <h5 class="mb-0 fw-bold">Welcome, Vishnu P!</h5>
                             <small>User ID: #US001</small>
                         </div>
 
                         <ul class="nav flex-column" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="bookRide-tab" data-bs-toggle="tab" href="#bookRide"
-                                    role="tab" aria-controls="bookRide" aria-selected="true"><i
-                                        class="fas fa-taxi me-3"></i>Book a Ride</a>
-                            </li>
+                            
                             <li class="nav-item">
                                 <a class="nav-link" id="bookParcel-tab" data-bs-toggle="tab" href="#bookParcel"
                                     role="tab" aria-controls="bookParcel" aria-selected="false"><i
                                         class="fas fa-box me-3"></i>Book a Parcel</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" id="bookRide-tab" data-bs-toggle="tab" href="#bookRide"
+                                    role="tab" aria-controls="bookRide" aria-selected="true"><i
+                                        class="fas fa-taxi me-3"></i>Book a Ride</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="currentRideUser-tab" data-bs-toggle="tab"
@@ -123,6 +124,96 @@
                     <!-- User Main Content Area -->
                     <div class="user-main-content">
                         <div class="tab-content" id="userDashboardTabsContent">
+
+
+                             <!-- NEW: Book a Parcel Tab Content -->
+                            <div class="tab-pane fade" id="bookParcel" role="tabpanel" aria-labelledby="bookParcel-tab">
+                                <h3 class="mb-4 fw-bold text-primary">
+                                    Book a Parcel Delivery
+                                </h3>
+                                <div class="card p-4 shadow-sm">
+                                    <form id="parcelBookingForm">
+                                        <div class="mb-3">
+                                            <label for="parcelSenderLocation" class="form-label">pic up location
+                                                parcel</label>
+                                            <input type="text" class="form-control" id="parcelSenderLocation"
+                                                placeholder="Enter sender's pickup location" required />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="parcelReceiverLocation" class="form-label">drop location
+                                                parcel</label>
+                                            <input type="text" class="form-control" id="parcelReceiverLocation"
+                                                placeholder="Enter receiver's drop location" required />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="parcelDescription" class="form-label">Parcel Description
+                                                (Optional)</label>
+                                            <input type="text" class="form-control" id="parcelDescription"
+                                                placeholder="e.g., Documents, Electronics, Food" />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="parcelWeight" class="form-label">Approx. Weight (kg)</label>
+                                            <input type="number" class="form-control" id="parcelWeight"
+                                                placeholder="e.g., 2.5" min="0.1" step="0.1" required />
+                                        </div>
+                                        <div class="mb-4">
+                                            <label class="form-label d-block">Parcel Type</label>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="parcelTypeRadio"
+                                                    id="docRadio" value="documents" checked />
+                                                <label class="form-check-label" for="docRadio">Documents</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="parcelTypeRadio"
+                                                    id="foodRadio" value="food" />
+                                                <label class="form-check-label" for="foodRadio">Food</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="parcelTypeRadio"
+                                                    id="otherRadio" value="other" />
+                                                <label class="form-check-label" for="otherRadio">Other</label>
+                                            </div>
+
+                                            <div class="mb-4">
+                                                <label class="form-label d-block">Parcel Image (Optional)</label>
+
+                                                <input type="file" id="parcelImageInput" name="parcelImage"
+                                                    accept="image/*" capture="environment" style="display: none"
+                                                    onchange="document.getElementById('imageStatus').innerText = this.files.length > 0 ? 'Image Selected: ' + this.files[0].name : 'No image selected';" />
+
+                                                <button type="button" class="btn btn-outline-primary w-100"
+                                                    onclick="document.getElementById('parcelImageInput').click()">
+                                                    <i class="fas fa-camera me-2"></i> Take Photo or
+                                                    Upload Image
+                                                </button>
+
+                                                <div id="imageStatus" class="form-text mt-2">
+                                                    No image selected. Click the button to add one.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary w-100 rounded-pill py-2">
+                                            <i class="fas fa-box me-2"></i> Find Delivery & Book
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="rideRequestSuccessToast" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                <i class="fas fa-check-circle me-2"></i> Your ride request is submitted!
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
+
+
+                            
                             <!-- Book a Ride Tab -->
                             <div class="tab-pane fade show active" id="bookRide" role="tabpanel"
                                 aria-labelledby="bookRide-tab">
@@ -164,11 +255,8 @@
                                                 <label class="btn btn-outline-primary" for="bikeType"><i
                                                         class="fas fa- me-2"></i>e-riksha</label>
 
-                                                <input type="radio" class="btn-check" name="vehicleType" id="pikup"
-                                                    value="e-riksha" autocomplete="off" />
-                                                <label class="btn btn-outline-primary" for="pikupType"><i
-                                                        class="fa-solid fa-truck-pickup"></i>
-                                                    loading</label>
+                                               
+                                               
                                             </div>
                                         </div>
 
@@ -248,79 +336,7 @@
                                 </div>
                             </div>
 
-                            <!-- NEW: Book a Parcel Tab Content -->
-                            <div class="tab-pane fade" id="bookParcel" role="tabpanel" aria-labelledby="bookParcel-tab">
-                                <h3 class="mb-4 fw-bold text-primary">
-                                    Book a Parcel Delivery
-                                </h3>
-                                <div class="card p-4 shadow-sm">
-                                    <form id="parcelBookingForm">
-                                        <div class="mb-3">
-                                            <label for="parcelSenderLocation" class="form-label">pic up location
-                                                parcel</label>
-                                            <input type="text" class="form-control" id="parcelSenderLocation"
-                                                placeholder="Enter sender's pickup location" required />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="parcelReceiverLocation" class="form-label">drop location
-                                                parcel</label>
-                                            <input type="text" class="form-control" id="parcelReceiverLocation"
-                                                placeholder="Enter receiver's drop location" required />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="parcelDescription" class="form-label">Parcel Description
-                                                (Optional)</label>
-                                            <input type="text" class="form-control" id="parcelDescription"
-                                                placeholder="e.g., Documents, Electronics, Food" />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="parcelWeight" class="form-label">Approx. Weight (kg)</label>
-                                            <input type="number" class="form-control" id="parcelWeight"
-                                                placeholder="e.g., 2.5" min="0.1" step="0.1" required />
-                                        </div>
-                                        <div class="mb-4">
-                                            <label class="form-label d-block">Parcel Type</label>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="parcelTypeRadio"
-                                                    id="docRadio" value="documents" checked />
-                                                <label class="form-check-label" for="docRadio">Documents</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="parcelTypeRadio"
-                                                    id="foodRadio" value="food" />
-                                                <label class="form-check-label" for="foodRadio">Food</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="parcelTypeRadio"
-                                                    id="otherRadio" value="other" />
-                                                <label class="form-check-label" for="otherRadio">Other</label>
-                                            </div>
-
-                                            <div class="mb-4">
-                                                <label class="form-label d-block">Parcel Image (Optional)</label>
-
-                                                <input type="file" id="parcelImageInput" name="parcelImage"
-                                                    accept="image/*" capture="environment" style="display: none"
-                                                    onchange="document.getElementById('imageStatus').innerText = this.files.length > 0 ? 'Image Selected: ' + this.files[0].name : 'No image selected';" />
-
-                                                <button type="button" class="btn btn-outline-primary w-100"
-                                                    onclick="document.getElementById('parcelImageInput').click()">
-                                                    <i class="fas fa-camera me-2"></i> Take Photo or
-                                                    Upload Image
-                                                </button>
-
-                                                <div id="imageStatus" class="form-text mt-2">
-                                                    No image selected. Click the button to add one.
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <button type="submit" class="btn btn-primary w-100 rounded-pill py-2">
-                                            <i class="fas fa-box me-2"></i> Find Delivery & Book
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
+                          
 
                             <!-- Current Ride Tab -->
                             <div class="tab-pane fade" id="currentRideUser" role="tabpanel"
@@ -445,23 +461,14 @@
                                         <input type="text" class="form-control" id="userName" value="Vishnu P."
                                             required />
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="userEmail" class="form-label">Email Address</label>
-                                        <input type="email" class="form-control" id="userEmail" value="vishnu@gmail.com"
-                                            required />
-                                    </div>
+                                   
                                     <div class="mb-3">
                                         <label for="userMobile" class="form-label">Mobile Number</label>
                                         <input type="tel" class="form-control" id="userMobile" value="+91 9876543210"
                                             disabled />
                                         <small class="text-muted">Contact support to change mobile number.</small>
                                     </div>
-                                    <div class="mb-4">
-                                        <label for="userPassword" class="form-label">Password</label>
-                                        <input type="password" class="form-control" id="userPassword"
-                                            placeholder="********" />
-                                        <small class="text-muted">Leave blank to keep current password.</small>
-                                    </div>
+                                    
                                     <button type="submit" class="btn btn-primary rounded-pill">
                                         <i class="fas fa-save me-2"></i> Save Changes
                                     </button>
@@ -469,45 +476,54 @@
                             </div>
 
                             <!-- Payment Methods Tab -->
-                            <div class="tab-pane fade" id="paymentMethods" role="tabpanel"
-                                aria-labelledby="paymentMethods-tab">
-                                <h3 class="mb-4 fw-bold text-primary">
-                                    Manage Payment Methods
-                                </h3>
-                                <div class="card p-4 shadow-sm mb-4">
-                                    <h5 class="mb-3">Linked Payment Accounts</h5>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <i class="fab fa-cc-visa me-2 text-primary"></i> ****
-                                            **** **** 4242 (Visa)
-                                            <button class="btn btn-outline-danger btn-sm">
-                                                Remove
-                                            </button>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <i class="fab fa-cc-mastercard me-2 text-warning"></i>
-                                            **** **** **** 1111 (MasterCard)
-                                            <button class="btn btn-outline-danger btn-sm">
-                                                Remove
-                                            </button>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <i class="fas fa-wallet me-2 text-success"></i> UPI:
-                                            vishnu@bank
-                                            <button class="btn btn-outline-danger btn-sm">
-                                                Remove
-                                            </button>
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-outline-primary mt-3 rounded-pill" data-bs-toggle="modal"
-                                        data-bs-target="#addPaymentModal">
-                                        <i class="fas fa-plus me-2"></i> Add New Payment Method
-                                    </button>
-                                </div>
-                                <div class="alert alert-info">
-                                    All payments processed securely via **Razorpay**.
-                                </div>
-                            </div>
+                           
+
+
+
+
+
+                            <!-- Payment Methods Tab -->
+<div class="tab-pane fade" id="paymentMethods" role="tabpanel" aria-labelledby="paymentMethods-tab">
+    <h3 class="mb-4 fw-bold text-primary">
+        Company Payment Details
+    </h3>
+    <div class="card p-4 shadow-sm mb-4">
+        <!-- QR Code Payment -->
+        <div class="payment-option-card mb-4">
+            <h5 class="mb-3"><i class="fas fa-qrcode me-2 text-info"></i> Scan & Pay (UPI)</h5>
+            <p>आप नीचे दिए गए QR कोड को स्कैन करके सीधे UPI के माध्यम से भुगतान कर सकते हैं।</p>
+            <!-- Replace with your actual QR code image -->
+            <img src="https://via.placeholder.com/200?text=Company+UPI+QR" alt="Company UPI QR Code" class="qr-code-img d-block mx-auto mb-3">
+            <p class="fw-bold text-center">UPI ID: mkvgramin@bankname</p>
+            <small class="text-muted d-block text-center">यह QR कोड सीधे कंपनी के खाते से जुड़ा हुआ है।</small>
+        </div>
+
+        <!-- Bank Transfer Details -->
+        <div class="payment-option-card mb-4">
+            <h5 class="mb-3"><i class="fas fa-bank me-2 text-success"></i> Bank Transfer</h5>
+            <p>आप सीधे हमारे बैंक खाते में भी राशि ट्रांसफर कर सकते हैं:</p>
+            <ul class="list-unstyled">
+                <li><strong>Bank Name:</strong> ABC Bank</li>
+                <li><strong>Account Holder:</strong> MKV Gramin Services</li>
+                <li><strong>Account Number:</strong> 1234567890123456</li>
+                <li><strong>IFSC Code:</strong> ABCB0001234</li>
+            </ul>
+            <small class="text-muted">कृपया ट्रांसफर के बाद ट्रांजेक्शन रेफरेंस ID को नोट कर लें।</small>
+        </div>
+
+        <!-- Cash Payment Option -->
+        <div class="payment-option-card">
+            <h5 class="mb-3"><i class="fas fa-money-bill-wave me-2 text-warning"></i> Cash Payment</h5>
+            <p>आप राइड या पार्सल डिलीवरी पूरी होने पर ड्राइवर को नकद भुगतान कर सकते हैं।</p>
+            <small class="text-muted">कृपया सही नकदी तैयार रखें।</small>
+        </div>
+    </div>
+
+    <div class="alert alert-info" role="alert">
+        <i class="fas fa-info-circle me-2"></i> सभी भुगतान सुरक्षित रूप से संसाधित किए जाते हैं।
+    </div>
+</div>
+
 
                             <!-- Notifications Tab -->
                             <div class="tab-pane fade" id="notifications" role="tabpanel"
@@ -616,6 +632,49 @@
 
     <!-- Custom JavaScript -->
     <script src="userjs/user-dashboard.js"></script>
+
+
+    <script>
+    // Get the form element
+    const parcelBookingForm = document.getElementById('parcelBookingForm');
+    // Get the toast element
+    const rideRequestSuccessToast = document.getElementById('rideRequestSuccessToast');
+
+    // Add an event listener for form submission
+    parcelBookingForm.addEventListener('submit', function(event) {
+        // Prevent the default form submission (which would reload the page)
+        event.preventDefault();
+
+        // Perform basic form validation here if desired
+        // For example, check if required fields are filled
+        const pickupLocation = document.getElementById('parcelSenderLocation').value;
+        const dropLocation = document.getElementById('parcelReceiverLocation').value;
+        const parcelWeight = document.getElementById('parcelWeight').value;
+
+        if (!pickupLocation || !dropLocation || !parcelWeight) {
+            // If validation fails, Bootstrap's default "required" messages will show.
+            // You can also add custom error handling here if needed.
+            console.log("Please fill out all required fields.");
+            // Optionally, show a different type of toast for error
+            return; // Stop the function if validation fails
+        }
+
+        // Here you would typically send the form data to a server using fetch() or XMLHttpRequest
+        // For this example, we'll just simulate a successful submission.
+
+        console.log('Parcel Booking Form Submitted!'); // For demonstration purposes
+
+        // Show the success toast notification
+        const toast = new bootstrap.Toast(rideRequestSuccessToast);
+        toast.show();
+
+        // Optionally, reset the form after successful submission
+        parcelBookingForm.reset();
+        document.getElementById('imageStatus').innerText = 'No image selected. Click the button to add one.';
+        // Reset radio buttons to default (Documents)
+        document.getElementById('docRadio').checked = true;
+    });
+</script>
 </body>
 
 </html>

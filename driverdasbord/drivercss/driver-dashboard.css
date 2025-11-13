@@ -1,4 +1,23 @@
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* General Body Styles */
 body {
     font-family: Arial, sans-serif;
@@ -10,58 +29,24 @@ body {
     min-height: 100vh;
 }
 
-/* Header (Navbar) Styles */
+/* Header (Navbar) Styles - Using Bootstrap Navbar */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     height: 60px; /* Fixed height for navbar */
-    flex-shrink: 0; /* Prevents navbar from shrinking */
+    flex-shrink: 0;
 }
-
-.navbar .logo {
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    font-size: 20px;
-    color: #333;
-}
-
-.navbar .logo img {
+.navbar-brand img {
     height: 30px;
-    margin-right: 10px;
 }
-
-.navbar .nav-links a {
-    text-decoration: none;
-    color: #555;
-    margin-left: 25px;
-    font-size: 16px;
-    transition: color 0.3s ease;
-}
-
-.navbar .nav-links a:hover {
-    color: #007bff; /* Primary blue */
-}
-
-.navbar .logout-btn {
-    background-color: #007bff; /* Primary blue */
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-left: 25px;
+.navbar .btn-primary { /* Logout button in navbar */
+    background-color: #007bff;
+    border-color: #007bff;
     transition: background-color 0.3s ease;
 }
-
-.navbar .logout-btn:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+.navbar .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
 }
+
 
 /* Dashboard Container */
 .dashboard-container {
@@ -74,11 +59,10 @@ body {
 /* Sidebar Styles */
 .sidebar {
     width: 280px; /* Fixed width for sidebar */
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    padding: 20px 0;
     flex-shrink: 0; /* Prevents sidebar from shrinking */
+    height: fit-content; /* Adjust height to content */
+    position: sticky; /* Sticky sidebar */
+    top: 20px; /* Distance from top */
 }
 
 .driver-profile {
@@ -93,16 +77,13 @@ body {
     height: 80px;
     background-color: #ffe0b2; /* Light orange background for avatar */
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 0 auto 10px;
 }
-
-.driver-avatar-icon {
+/* Already handled in HTML with Bootstrap classes: fs-1 text-warning */
+/* .driver-avatar-icon {
     font-size: 50px;
-    color: #ff9800; /* Orange color for icon */
-}
+    color: #ff9800;
+} */
 
 .driver-profile h3 {
     margin: 10px 0 5px;
@@ -116,17 +97,7 @@ body {
     margin: 0;
 }
 
-.sidebar-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.sidebar-nav li {
-    margin-bottom: 5px;
-}
-
-.sidebar-nav a {
+.sidebar-nav .nav-pills .nav-link {
     display: flex;
     align-items: center;
     padding: 12px 20px;
@@ -135,39 +106,42 @@ body {
     font-size: 16px;
     transition: background-color 0.3s ease, color 0.3s ease;
     border-left: 5px solid transparent; /* For active indicator */
+    border-radius: 0.25rem; /* Bootstrap default radius */
 }
 
-.sidebar-nav a i {
+.sidebar-nav .nav-pills .nav-link i {
     margin-right: 15px;
     font-size: 18px;
     width: 20px; /* Ensure icon alignment */
     text-align: center;
 }
 
-.sidebar-nav li.active a {
+/* Active state for Bootstrap nav-pills */
+.sidebar-nav .nav-pills .nav-link.active {
     background-color: #ffe0b2; /* Orange background for active item */
     color: #ff9800; /* Orange color for active text */
     border-left-color: #ff9800; /* Orange border for active indicator */
     font-weight: bold;
 }
 
-.sidebar-nav a:hover:not(.active) {
+.sidebar-nav .nav-pills .nav-link:hover:not(.active) {
     background-color: #f0f8ff; /* Lighter blue on hover */
     color: #007bff;
+    border-left-color: #f0f8ff; /* Match hover background */
 }
 
 .sidebar-nav .logout-sidebar {
     margin-top: 30px;
 }
 
-.sidebar-nav .logout-sidebar a {
-    color: #dc3545; /* Red color for logout */
+.sidebar-nav .logout-sidebar .nav-link {
+    color: #dc3545 !important; /* Red color for logout */
     border-left-color: #dc3545; /* Red border for logout */
 }
 
-.sidebar-nav .logout-sidebar a:hover {
+.sidebar-nav .logout-sidebar .nav-link:hover {
     background-color: #fff0f0;
-    color: #dc3545;
+    color: #dc3545 !important;
 }
 
 
@@ -175,46 +149,21 @@ body {
 .main-content {
     flex-grow: 1; /* Allows main content to take remaining space */
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     padding: 25px;
 }
 
-/* Hide content sections by default */
-.content-section {
-    display: none;
-}
 
 /* Specific Styles for "New Ride Requests" */
-.content-section#new-requests h2 {
+.tab-pane#new-requests h2 {
     color: #ff9800; /* Orange for New Ride Requests title */
 }
 
 .ride-card {
-    background-color: #f9f9f9;
     border: 1px solid #eee;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    background-color: #fcfcfc;
 }
-
-.ride-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.ride-header .user-info {
-    font-size: 1.1em;
-    color: #333;
-}
-
-.ride-header .user-info strong {
-    color: #007bff; /* Primary blue for user name */
-}
-
+/* Already handled by Bootstrap badges */
+/*
 .ride-type-tag {
     background-color: #ccc;
     color: #fff;
@@ -223,14 +172,9 @@ body {
     font-size: 0.85em;
     font-weight: bold;
 }
-
-.ride-type-tag.auto {
-    background-color: #007bff; /* Blue for Auto */
-}
-
-.ride-type-tag.bike {
-    background-color: #6c757d; /* Grey for Bike */
-}
+.ride-type-tag.auto { background-color: #007bff; }
+.ride-type-tag.bike { background-color: #6c757d; }
+*/
 
 .ride-details p {
     margin: 5px 0;
@@ -242,62 +186,23 @@ body {
     color: #333;
 }
 
-.ride-actions {
-    margin-top: 20px;
-    display: flex;
-    gap: 15px;
-}
-
-.accept-btn, .reject-btn {
+.ride-actions .btn { /* Accept/Reject buttons */
     padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
     font-weight: bold;
     transition: background-color 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 8px;
-}
-
-.accept-btn {
-    background-color: #28a745; /* Green for Accept */
-    color: #fff;
-}
-
-.accept-btn:hover {
-    background-color: #218838;
-}
-
-.reject-btn {
-    background-color: #dc3545; /* Red for Reject */
-    color: #fff;
-}
-
-.reject-btn:hover {
-    background-color: #c82333;
-}
-
-.no-requests-message {
-    text-align: center;
-    color: #777;
-    margin-top: 50px;
-    font-size: 1.1em;
+    justify-content: center; /* Center icon and text */
 }
 
 /* Specific Styles for "Current Ride" */
-.content-section#current-ride h2 {
+.tab-pane#current-ride h2 {
     color: #ff9800; /* Orange for Current Ride title */
 }
 
 .current-ride-card {
     background-color: #e6f2ff; /* Light blue background */
     border: 1px solid #b3d9ff; /* Lighter blue border */
-    border-radius: 8px;
-    padding: 25px;
-    margin-bottom: 20px;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
 }
 
 .current-ride-card h3 {
@@ -305,11 +210,6 @@ body {
     margin-top: 0;
     margin-bottom: 15px;
     font-size: 1.3em;
-}
-
-.current-ride-card p {
-    margin: 8px 0;
-    color: #333;
 }
 
 .current-ride-card p strong {
@@ -332,63 +232,23 @@ body {
     margin-bottom: 10px;
 }
 
-.current-ride-actions {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 25px;
-}
-
-.call-user-btn, .end-ride-btn {
+.current-ride-actions .btn { /* Call/End Ride buttons */
     padding: 12px 25px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.05em;
     font-weight: bold;
     transition: background-color 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center; /* Center icon and text */
 }
-
-.call-user-btn {
-    background-color: #17a2b8; /* Teal for Call User */
-    color: #fff;
-}
-
-.call-user-btn:hover {
-    background-color: #138496;
-}
-
-.end-ride-btn {
-    background-color: #dc3545; /* Red for End Ride */
-    color: #fff;
-}
-
-.end-ride-btn:hover {
-    background-color: #c82333;
-}
-
 
 /* Specific Styles for "Earnings Dashboard" */
-.content-section#earnings h2 {
+.tab-pane#earnings h2 {
     color: #28a745; /* Green for Earnings Dashboard title */
 }
 
-.earnings-summary {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 30px;
-}
-
 .earning-card {
-    flex: 1;
     background-color: #28a745; /* Green */
     color: #fff;
-    padding: 25px;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .earning-card h3 {
@@ -409,11 +269,8 @@ body {
 }
 
 .ride-earnings-list {
-    background-color: #f9f9f9;
     border: 1px solid #eee;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    background-color: #fcfcfc;
 }
 
 .ride-earnings-list h3 {
@@ -423,65 +280,31 @@ body {
     font-size: 1.3em;
 }
 
-.earning-item {
-    display: flex;
+.earning-item { /* Already handled by Bootstrap list-group-item */
+    /* display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 12px 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #eee; */
 }
 
-.earning-item:last-child {
+/* .earning-item:last-child {
     border-bottom: none;
-}
+} */
 
 .earning-item .ride-info {
     color: #555;
     font-size: 1em;
 }
 
-.earning-item .ride-amount {
-    background-color: #28a745; /* Green */
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 0.9em;
-    font-weight: bold;
-}
-
-.view-full-report-btn {
-    display: block;
-    width: fit-content;
-    margin: 25px auto 0;
-    padding: 12px 30px;
-    background-color: #007bff; /* Primary blue */
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-decoration: none; /* For anchor tag */
-}
-
-.view-full-report-btn:hover {
-    background-color: #0056b3;
-}
-
 /* Specific Styles for "Ride History" */
-.content-section#ride-history h2 {
+.tab-pane#ride-history h2 {
     color: #007bff; /* Blue for Ride History title */
 }
 
 .history-card {
-    background-color: #f9f9f9;
     border: 1px solid #eee;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
-    position: relative;
+    background-color: #fcfcfc;
 }
 
 .history-card h3 {
@@ -491,10 +314,11 @@ body {
     margin-bottom: 10px;
 }
 
-.history-card .ride-status {
-    color: #28a745; /* Green for completed */
+/* Already handled by Bootstrap badge bg-success */
+/* .history-card .ride-status {
+    color: #28a745;
     font-weight: bold;
-}
+} */
 
 .history-card .timestamp {
     position: absolute;
@@ -514,82 +338,14 @@ body {
     color: #333;
 }
 
-/* Specific Styles for "Vehicle Details" */
-.content-section#vehicle-details h2 {
-    color: #17a2b8; /* Teal for Vehicle Details title */
-}
-
-.vehicle-form {
-    background-color: #f9f9f9;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    padding: 25px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
-    max-width: 600px; /* Constrain form width */
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    color: #333;
-    font-weight: bold;
-    font-size: 1.05em;
-}
-
-.form-group select,
-.form-group input[type="text"],
-.form-group input[type="file"] {
-    width: 100%;
-    padding: 10px 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1em;
-    box-sizing: border-box; /* Include padding in width */
-}
-
-.form-group input[type="file"] {
-    padding: 8px 12px; /* Adjust padding for file input */
-}
-
-.current-file-info {
-    font-size: 0.9em;
-    color: #777;
-    margin-top: 5px;
-}
-
-.save-changes-btn {
-    background-color: #28a745; /* Green for Save Changes */
-    color: #fff;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.05em;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.save-changes-btn:hover {
-    background-color: #218838;
-}
-
 /* Specific Styles for "Notifications" */
-.content-section#notifications h2 {
+.tab-pane#notifications h2 {
     color: #ffc107; /* Yellow/Orange for Notifications title */
 }
 
 .notification-card {
-    background-color: #f9f9f9;
     border: 1px solid #eee;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 15px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
-    position: relative;
+    background-color: #fcfcfc;
 }
 
 .notification-card h3 {
@@ -615,6 +371,110 @@ body {
 }
 
 
+/* Specific Styles for "My Bank Details" */
+#driverBankDetails h2 {
+    color: #007bff; /* Primary color for main heading */
+    margin-bottom: 25px;
+}
+
+#driverBankDetails .card {
+    border: none;
+    border-radius: 12px;
+    padding: 30px; /* More padding inside the card */
+}
+
+#driverBankDetails .card h5 {
+    color: #343a40; /* Darker text for subheadings */
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 1.15rem;
+}
+
+#driverBankDetails .card h5 i {
+    margin-right: 10px;
+    color: #007bff; /* Icon color */
+}
+
+#driverBankDetails .form-label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 8px;
+}
+
+#driverBankDetails .form-control {
+    border-radius: 8px;
+    padding: 10px 15px;
+    border: 1px solid #ced4da;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+#driverBankDetails .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+
+#driverBankDetails .form-text {
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+#driverBankDetails .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    font-weight: 600;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    border-radius: 50px !important; /* Fully rounded */
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+#driverBankDetails .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    transform: translateY(-1px); /* Slight lift effect */
+}
+
+#qrCodePreview {
+    margin-top: 15px;
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #fdfdfd;
+    text-align: center;
+    display: inline-block; /* To make it wrap content */
+}
+
+#qrCodePreview img {
+    max-width: 100px; /* Smaller preview image */
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+#qrCodePreview .btn-outline-danger {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    color: #0c5460;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.alert-info i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+    color: #0c5460;
+}
+
+
 /* Footer Styles (Optional, based on your original site footer) */
 .footer {
     background-color: #2c3e50; /* Dark grey */
@@ -623,4 +483,105 @@ body {
     text-align: center;
     margin-top: 20px; /* Space between main content and footer */
     flex-shrink: 0; /* Prevents footer from shrinking */
+}
+
+/* Responsiveness */
+@media (max-width: 991.98px) { /* Medium devices and smaller (lg breakpoint) */
+    .dashboard-container {
+        flex-direction: column; /* Stack sidebar and main content vertically */
+        padding: 15px;
+    }
+
+    .sidebar {
+        width: 100%; /* Sidebar takes full width */
+        margin-bottom: 20px;
+        position: static; /* No longer sticky */
+        top: auto;
+    }
+
+    .sidebar-nav ul {
+        flex-direction: row; /* Make sidebar nav horizontal */
+        flex-wrap: wrap; /* Allow items to wrap */
+        justify-content: center;
+    }
+
+    .sidebar-nav .nav-item {
+        flex: 0 0 auto; /* Items size to content */
+        margin: 5px;
+    }
+
+    .sidebar-nav .nav-pills .nav-link {
+        border-left: none; /* Remove left border for horizontal */
+        border-bottom: 3px solid transparent; /* Add bottom border for active */
+    }
+
+    .sidebar-nav .nav-pills .nav-link.active {
+        border-bottom-color: #ff9800; /* Orange bottom border for active */
+        border-left-color: transparent; /* Ensure left border is transparent */
+    }
+
+    .sidebar-nav .nav-pills .nav-link:hover:not(.active) {
+        border-bottom-color: #f0f8ff; /* Match hover background */
+        border-left-color: transparent;
+    }
+
+    .sidebar-nav .logout-sidebar .nav-link {
+        border-left: none;
+        border-bottom: 3px solid #dc3545;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+    .earnings-summary {
+        flex-direction: column; /* Stack earning cards vertically */
+    }
+
+    .current-ride-actions {
+        flex-direction: column; /* Stack call/end buttons vertically */
+        gap: 10px;
+    }
+}
+
+@media (max-width: 767.98px) { /* Small devices and smaller (md breakpoint) */
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .dashboard-container {
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+
+    .ride-actions {
+        flex-direction: column; /* Stack accept/reject buttons vertically */
+        gap: 10px;
+    }
+}
+
+@media (max-width: 575.98px) { /* Extra small devices (sm breakpoint) */
+    .navbar .btn-primary {
+        margin-left: 15px !important;
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+
+    .sidebar-nav .nav-link {
+        padding: 10px 15px;
+        font-size: 15px;
+    }
+
+    .sidebar-nav .nav-link i {
+        margin-right: 10px;
+        font-size: 16px;
+    }
+    
+    #driverBankDetails .card {
+        padding: 20px;
+    }
 }

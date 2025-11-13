@@ -225,25 +225,33 @@ body {
 }
 
 /* Modal specific styles */
-#addPaymentModal .modal-content {
-    border-radius: 10px;
-}
 
-#addPaymentModal .modal-header {
-    border-bottom: none;
-}
 
-#addPaymentModal .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-}
 
-#addPaymentModal .btn-outline-success {
-    color: #28a745;
-    border-color: #28a745;
-}
 
-#addPaymentModal .btn-outline-success:hover {
-    background-color: #28a745;
-    color: #fff;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+ .qr-code-img {
+        max-width: 200px;
+        height: auto;
+        border: 1px solid #ddd;
+        padding: 5px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+    .payment-option-card {
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }

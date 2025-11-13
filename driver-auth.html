@@ -1,4 +1,10 @@
 
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +17,50 @@
     <link rel="stylesheet" href="css/driver-auth.css"> <!-- Make sure this path is correct -->
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Add some basic styling for the driver-auth-container if driver-auth.css is not present */
+        body {
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .driver-auth-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .btn-primary {
+            background-color: #28a745; /* Green color for the button */
+            border-color: #28a745;
+        }
+        .btn-primary:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+        .form-label {
+            text-align: left;
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-control {
+            border-radius: 8px;
+            padding: 10px 15px;
+            border: 1px solid #ced4da;
+        }
+        .form-control:focus {
+            border-color: #28a745;
+            box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+        }
+    </style>
 </head>
 <body>
 
@@ -18,48 +68,31 @@
         <div class="driver-auth-container">
             <div class="driver-auth-header">
                 <h1 class="text-center mb-4">Driver Portal</h1>
-                <div class="nav nav-pills justify-content-center" id="driver-auth-tab" role="tablist">
-                    
-                    <button class="nav-link" id="driver-register-tab" data-bs-toggle="pill" data-bs-target="#driver-register" type="button" role="tab" aria-controls="driver-register" aria-selected="false">Register</button>
-                 
-                
-                </div>
             </div>
 
             <div class="tab-content" id="driver-auth-tabContent">
-                <!-- Driver Login Form Tab -->
-               
-
-                <!-- Driver Registration Form Tab -->
-                <div class="tab-pane fade" id="driver-register" role="tabpanel" aria-labelledby="driver-register-tab">
+                <!-- Driver Registration Form Tab - Directly shown -->
+                <div class="tab-pane fade show active" id="driver-register" role="tabpanel" aria-labelledby="driver-register-tab">
                     <form class="driver-auth-form" id="driverRegistrationForm">
                         <h2 class="text-center mb-4">Register as a Driver</h2>
                         
-                        <!-- Step 1: Driver Details -->
+                        <div class="mb-3">
+                            <label for="driverName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="driverName"
+                                placeholder="Enter your name" />
+                        </div>
+                     
+                        <div class="mb-3">
+                            <label for="driverMobilenumber" class="form-label">Mobile Number</label>
+                            <input type="tel" class="form-control" id="driverMobilenumber"
+                                placeholder="1234567890" />
+                        </div>
 
-
-                              
-                                    <div class="mb-3">
-                                        <label for="userName" class="form-label">Name</label>
-                                        <input type="text" class="form-control" id="driverName"
-                                            placeholder="Enter your name" />
-                                    </div>
-                                 
-                                    <div class="mb-3">
-                                        <label for="driverMobilenumber" class="form-label">Mobile Number</label>
-                                        <input type="tel" class="form-control" id="driverMobilenumber"
-                                            placeholder="1234567890" />
-                                    </div>
-
-                                    <button type="button" id="loginModalLabel"
-                                        class="btn btn-primary w-100 rounded-pill py-2 mb-3"
-                                        onclick="window.location.href='driververifyotpscreen.html'">
-                                        <i class="fas fa-lock me-2"></i> Login / Get OTP
-                                    </button>
-                                
-
-
-                        
+                        <button type="button" 
+                            class="btn btn-primary w-100 rounded-pill py-2 mb-3"
+                            onclick="window.location.href='driververifyotpscreen.html'">
+                            <i class="fas fa-lock me-2"></i> Login / Get OTP
+                        </button>
                     </form>
                 </div>
             </div>

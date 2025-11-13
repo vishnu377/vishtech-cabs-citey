@@ -7,76 +7,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vishtech Cabs - Driver Dashboard</title>
     <link rel="stylesheet" href="drivercss/driver-dashboard.css">
-    <link rel="stylesheet" href="css/bootstrap-5.3.8-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="..css/bootstrap-5.3.8-dist/css/bootstrap.min.css">
    <link rel="stylesheet" href="css/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom CSS - Make sure this is linked AFTER Bootstrap CSS -->
+    <link rel="stylesheet" href="drivercss/driver-dashboard.css">
+
+
+
+
+
 </head>
 <body>
-    <header class="navbar">
-        <div class="logo">
-            <img src="https://via.placeholder.com/30x30" alt="Vishtech Cabs Logo"> <!-- Replace with your actual logo -->
-            <span>Vishtech Cabs</span>
+   
+
+
+
+ <header class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="../img/mkv gramin logo.png" alt="mkv gramin logo" height="30" class="me-2">
+                <span class="fw-bold fs-5">Mkv gramin</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Driver</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-primary ms-3">Logout</button>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <nav class="nav-links">
-            <a href="#">User</a>
-            <a href="#">Driver</a>
-            <a href="#">Safety</a>
-            <button class="logout-btn">Logout</button>
-        </nav>
     </header>
 
-    <div class="dashboard-container">
-        <aside class="sidebar">
-            <div class="driver-profile">
-                <div class="avatar-circle">
-                    <i class="fas fa-user-circle driver-avatar-icon"></i> <!-- Placeholder for avatar -->
+    <div class="container-fluid dashboard-container">
+        <aside class="sidebar bg-white p-3 shadow-sm rounded">
+            <div class="driver-profile text-center pb-3 mb-3 border-bottom">
+                <div class="avatar-circle mx-auto mb-2 bg-warning bg-opacity-25 rounded-circle d-flex justify-content-center align-items-center">
+                    <i class="fas fa-user-circle fs-1 text-warning"></i>
                 </div>
-                <h3>Hello, Rajesh K!</h3>
-                <p>Driver ID: #DR1001</p>
+                <h3 class="h5 mb-1">Hello, Rajesh K!</h3>
+                <p class="text-muted small">Driver ID: #DR1001</p>
             </div>
 
             <nav class="sidebar-nav">
-                <ul>
-                    <li class="nav-item active" data-target="new-requests">
-                        <a href="#new-requests">
-                            <i class="fas fa-car-side"></i>
+                <ul class="nav flex-column nav-pills" id="driverTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="new-requests-tab" data-bs-toggle="pill" data-bs-target="#new-requests" type="button" role="tab" aria-controls="new-requests" aria-selected="true">
+                            <i class="fas fa-car-side me-3"></i>
                             New Ride Requests
                         </a>
                     </li>
-                    <li class="nav-item" data-target="current-ride">
-                        <a href="#current-ride">
-                            <i class="fas fa-route"></i>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="current-ride-tab" data-bs-toggle="pill" data-bs-target="#current-ride" type="button" role="tab" aria-controls="current-ride" aria-selected="false">
+                            <i class="fas fa-route me-3"></i>
                             Current Ride
                         </a>
                     </li>
-                    <li class="nav-item" data-target="earnings">
-                        <a href="#earnings">
-                            <i class="fas fa-dollar-sign"></i>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="earnings-tab" data-bs-toggle="pill" data-bs-target="#earnings" type="button" role="tab" aria-controls="earnings" aria-selected="false">
+                            <i class="fas fa-dollar-sign me-3"></i>
                             Earnings Dashboard
                         </a>
                     </li>
-                    <li class="nav-item" data-target="ride-history">
-                        <a href="#ride-history">
-                            <i class="fas fa-history"></i>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="ride-history-tab" data-bs-toggle="pill" data-bs-target="#ride-history" type="button" role="tab" aria-controls="ride-history" aria-selected="false">
+                            <i class="fas fa-history me-3"></i>
                             Ride History
                         </a>
                     </li>
-                    <li class="nav-item" data-target="vehicle-details">
-                        <a href="#vehicle-details">
-                            <i class="fas fa-car"></i>
-                            Vehicle Details
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="driverBankDetails-tab" data-bs-toggle="pill" data-bs-target="#driverBankDetails" type="button" role="tab" aria-controls="driverBankDetails" aria-selected="false">
+                            <i class="fas fa-bank me-3"></i>
+                            My Bank Details
                         </a>
                     </li>
-                    <li class="nav-item" data-target="notifications">
-                        <a href="#notifications">
-                            <i class="fas fa-bell"></i>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="notifications-tab" data-bs-toggle="pill" data-bs-target="#notifications" type="button" role="tab" aria-controls="notifications" aria-selected="false">
+                            <i class="fas fa-bell me-3"></i>
                             Notifications
                         </a>
                     </li>
-                    <li class="logout-sidebar">
-                        <a href="#">
-                            <i class="fas fa-sign-out-alt"></i>
+                    <li class="nav-item logout-sidebar mt-4" role="presentation">
+                        <a class="nav-link text-danger" href="#">
+                            <i class="fas fa-sign-out-alt me-3"></i>
                             Logout
                         </a>
                     </li>
@@ -84,228 +111,295 @@
             </nav>
         </aside>
 
-        <main class="main-content">
-            <!-- New Ride Requests Section -->
-            <div id="new-requests" class="content-section">
-                <h2>New Ride Requests</h2>
+        <main class="main-content flex-grow-1 bg-white p-4 shadow-sm rounded">
+            <div class="tab-content" id="driverTabContent">
+                <!-- New Ride Requests Section -->
+                <div class="tab-pane fade show active" id="new-requests" role="tabpanel" aria-labelledby="new-requests-tab">
+                    <h2 class="mb-4 text-warning">New Ride Requests</h2>
 
-                <!-- Ride Request Card 1 (Auto) -->
-                <div class="ride-card">
-                    <div class="ride-header">
-                        <span class="user-info">User: <strong>Priya Sharma</strong></span>
-                        <span class="ride-type-tag auto">Auto</span>
+                    <!-- Ride Request Card 1 (Auto) -->
+                    <div class="card ride-card mb-3 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="fs-6 text-dark">User: <strong class="text-primary">Priya Sharma</strong></span>
+                                <span class="badge bg-primary ride-type-tag auto">Auto</span>
+                            </div>
+                            <div class="ride-details">
+                                <p class="mb-1"><strong>Pickup:</strong> Sector 29, Cyber City</p>
+                                <p class="mb-1"><strong>Drop:</strong> MG Road Metro Station</p>
+                                <p class="mb-0 text-muted small">Distance: 4.5 km | Est. Fare: ₹120.00 | Time: 12 min</p>
+                            </div>
+                            <div class="ride-actions mt-3 d-flex gap-3">
+                                <button class="btn btn-success accept-btn flex-grow-1"><i class="fas fa-check-circle me-2"></i> Accept</button>
+                                <button class="btn btn-danger reject-btn flex-grow-1"><i class="fas fa-times-circle me-2"></i> Reject</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="ride-details">
-                        <p><strong>Pickup:</strong> Sector 29, Cyber City</p>
-                        <p><strong>Drop:</strong> MG Road Metro Station</p>
-                        <p>Distance:4.5 km | Est. Fare: ₹120.00 | Time: 12 min</p>
+
+                    <!-- Ride Request Card 2 (Bike) -->
+                    <div class="card ride-card mb-3 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="fs-6 text-dark">User: <strong class="text-primary">Amit Kumar</strong></span>
+                                <span class="badge bg-secondary ride-type-tag bike">Bike</span>
+                            </div>
+                            <div class="ride-details">
+                                <p class="mb-1"><strong>Pickup:</strong> Green Park, Delhi</p>
+                                <p class="mb-1"><strong>Drop:</strong> Connaught Place</p>
+                                <p class="mb-0 text-muted small">Distance: 7.0 km | Est. Fare: ₹90.00 | Time: 20 min</p>
+                            </div>
+                            <div class="ride-actions mt-3 d-flex gap-3">
+                                <button class="btn btn-success accept-btn flex-grow-1"><i class="fas fa-check-circle me-2"></i> Accept</button>
+                                <button class="btn btn-danger reject-btn flex-grow-1"><i class="fas fa-times-circle me-2"></i> Reject</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="ride-actions">
-                        <button class="accept-btn"><i class="fas fa-check-circle"></i> Accept</button>
-                        <button class="reject-btn"><i class="fas fa-times-circle"></i> Reject</button>
+
+                    <!-- Optional: No New Ride Requests message -->
+                    <!-- <p class="text-center text-muted mt-5">No new ride requests at the moment.</p> -->
+                </div>
+
+                <!-- Current Ride Section -->
+                <div class="tab-pane fade" id="current-ride" role="tabpanel" aria-labelledby="current-ride-tab">
+                    <h2 class="mb-4 text-warning">Current Ride</h2>
+
+                    <div class="card current-ride-card shadow-sm">
+                        <div class="card-body">
+                            <h3 class="card-title text-primary mb-3">Riding with: Anjali Singh</h3>
+                            <p class="mb-1"><strong>Pickup:</strong> Old Delhi Railway Station</p>
+                            <p class="mb-1"><strong>Drop:</strong> Karol Bagh Market</p>
+                            <p class="mb-0"><strong>Fare:</strong> ₹150.00 | <strong>Type:</strong> Auto</p>
+
+                            <div class="text-center my-4 text-muted fst-italic">
+                                <i class="fas fa-map-marker-alt fs-2 d-block mb-2"></i>
+                                Live Tracking (Google Maps API integration)
+                            </div>
+
+                            <div class="current-ride-actions d-flex justify-content-between mt-4">
+                                <button class="btn btn-info call-user-btn flex-grow-1 me-2"><i class="fas fa-phone me-2"></i> Call User</button>
+                                <button class="btn btn-danger end-ride-btn flex-grow-1 ms-2"><i class="fas fa-times-circle me-2"></i> End Ride</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Optional: Message if no current ride -->
+                    <!-- <p class="text-center text-muted mt-5">No active ride at the moment.</p> -->
+                </div>
+
+                <!-- Earnings Dashboard Section -->
+                <div class="tab-pane fade" id="earnings" role="tabpanel" aria-labelledby="earnings-tab">
+                    <h2 class="mb-4 text-success">Earnings Dashboard</h2>
+
+                    <div class="d-flex gap-3 mb-4">
+                        <div class="card earning-card bg-success text-white flex-fill shadow-sm">
+                            <div class="card-body text-center">
+                                <h3 class="card-title fs-6 opacity-75">Today's Earnings</h3>
+                                <p class="fs-2 fw-bold mb-0">₹1,250</p>
+                                <small class="opacity-75">as of {{ current_time }}</small>
+                            </div>
+                        </div>
+                        <div class="card earning-card bg-success text-white flex-fill shadow-sm">
+                            <div class="card-body text-center">
+                                <h3 class="card-title fs-6 opacity-75">This Week's Earnings</h3>
+                                <p class="fs-2 fw-bold mb-0">₹7,800</p>
+                                <small class="opacity-75">total from all rides</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card ride-earnings-list shadow-sm">
+                        <div class="card-body">
+                            <h3 class="mb-4 text-dark">Ride-wise Earnings</h3>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span class="text-muted">Ride #DR12345 (User: Karan)</span>
+                                    <span class="badge bg-success fs-6">₹150.00</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span class="text-muted">Ride #DR12344 (User: Shruti)</span>
+                                    <span class="badge bg-success fs-6">₹80.00</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span class="text-muted">Ride #DR12343 (User: Rahul)</span>
+                                    <span class="badge bg-success fs-6">₹210.00</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="btn btn-primary mt-4 d-block mx-auto" style="max-width: 200px;">View Full Report</a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Ride Request Card 2 (Bike) -->
-                <div class="ride-card">
-                    <div class="ride-header">
-                        <span class="user-info">User: <strong>Amit Kumar</strong></span>
-                        <span class="ride-type-tag bike">Bike</span>
+                <!-- Ride History Section -->
+                <div class="tab-pane fade" id="ride-history" role="tabpanel" aria-labelledby="ride-history-tab">
+                    <h2 class="mb-4 text-primary">Your Ride History</h2>
+
+                    <div class="card history-card mb-3 shadow-sm position-relative">
+                        <div class="card-body">
+                            <h3 class="card-title mb-2 fs-5">Ride #DR12345 <span class="badge bg-success ms-2">Completed</span></h3>
+                            <span class="position-absolute top-0 end-0 mt-3 me-3 text-muted small">2 days ago</span>
+                            <p class="mb-1">User: Karan Sharma | Auto</p>
+                            <p class="mb-1">Earned: <strong class="text-success">₹150.00</strong></p>
+                            <p class="mb-0 text-muted small">From: Sector 18, Gurgaon <br> To: Indira Gandhi International Airport</p>
+                        </div>
                     </div>
-                    <div class="ride-details">
-                        <p><strong>Pickup:</strong> Green Park, Delhi</p>
-                        <p><strong>Drop:</strong> Connaught Place</p>
-                        <p>Distance:7.0 km | Est. Fare: ₹90.00 | Time: 20 min</p>
+
+                    <div class="card history-card mb-3 shadow-sm position-relative">
+                        <div class="card-body">
+                            <h3 class="card-title mb-2 fs-5">Ride #DR12344 <span class="badge bg-success ms-2">Completed</span></h3>
+                            <span class="position-absolute top-0 end-0 mt-3 me-3 text-muted small">Last week</span>
+                            <p class="mb-1">User: Shruti Verma | Bike</p>
+                            <p class="mb-1">Earned: <strong class="text-success">₹80.00</strong></p>
+                            <p class="mb-0 text-muted small">From: Home Address <br> To: Tech Park</p>
+                        </div>
                     </div>
-                    <div class="ride-actions">
-                        <button class="accept-btn"><i class="fas fa-check-circle"></i> Accept</button>
-                        <button class="reject-btn"><i class="fas fa-times-circle"></i> Reject</button>
+                    <!-- Add more history cards as needed -->
+                </div>
+
+                <!-- Notifications Section -->
+                <div class="tab-pane fade" id="notifications" role="tabpanel" aria-labelledby="notifications-tab">
+                    <h2 class="mb-4 text-warning">Notifications</h2>
+
+                    <div class="card notification-card mb-3 shadow-sm position-relative">
+                        <div class="card-body">
+                            <h3 class="card-title mb-2 fs-5">New Ride Request!</h3>
+                            <span class="position-absolute top-0 end-0 mt-3 me-3 text-muted small">Just now</span>
+                            <p class="mb-0 text-muted">A new ride request from User: Priya Sharma. Pickup: Cyber City.</p>
+                        </div>
+                    </div>
+                    <div class="card notification-card mb-3 shadow-sm position-relative">
+                        <div class="card-body">
+                            <h3 class="card-title mb-2 fs-5">Your weekly payout processed!</h3>
+                            <span class="position-absolute top-0 end-0 mt-3 me-3 text-muted small">Yesterday</span>
+                            <p class="mb-0 text-muted">₹7,800 has been transferred to your bank account.</p>
+                        </div>
+                    </div>
+                    <!-- Add more notification cards as needed -->
+                </div>
+
+                <!-- Driver Bank Details Tab -->
+                <div class="tab-pane fade" id="driverBankDetails" role="tabpanel" aria-labelledby="driverBankDetails-tab">
+                    <h2 class="mb-4 fw-bold text-primary">My Bank Details for Payouts</h2>
+                    <div class="card p-4 shadow-sm">
+                        <form id="driverBankDetailsForm">
+                            <h5 class="mb-3 d-flex align-items-center"><i class="fas fa-bank me-2 text-info"></i> Bank Account Information</h5>
+                            <div class="mb-3">
+                                <label for="bankName" class="form-label">Bank Name</label>
+                                <input type="text" class="form-control" id="bankName" placeholder="e.g., State Bank of India" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="accountHolderName" class="form-label">Account Holder Name</label>
+                                <input type="text" class="form-control" id="accountHolderName" placeholder="e.g., Rajesh Kumar" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="accountNumber" class="form-label">Account Number</label>
+                                <input type="text" class="form-control" id="accountNumber" placeholder="e.g., 1234567890123456" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="ifscCode" class="form-label">IFSC Code</label>
+                                <input type="text" class="form-control" id="ifscCode" placeholder="e.g., SBIN0001234" required>
+                            </div>
+
+                            <hr class="my-4">
+
+                            <h5 class="mb-3 d-flex align-items-center"><i class="fas fa-money-bill-wave me-2 text-success"></i> UPI Details</h5>
+                            <div class="mb-3">
+                                <label for="upiId" class="form-label">UPI ID</label>
+                                <input type="text" class="form-control" id="upiId" placeholder="e.g., rajeshk@upi" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="upiQrCode" class="form-label">Upload UPI QR Code (Optional)</label>
+                                <input type="file" class="form-control" id="upiQrCode" accept="image/*">
+                                <small class="form-text text-muted">अपनी UPI QR कोड इमेज अपलोड करें ताकि एडमिन आसानी से भुगतान कर सकें।</small>
+                                <div id="qrCodePreview" class="mt-2 text-center" style="max-width: 180px; display: none;">
+                                    <img src="" alt="QR Code Preview" class="img-fluid border rounded mb-2" id="qrCodeImagePreview">
+                                    <button type="button" class="btn btn-sm btn-outline-danger" onclick="removeQrCode()">Remove QR</button>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-100 rounded-pill py-2 mt-4">
+                                <i class="fas fa-save me-2"></i> Save Payment Details
+                            </button>
+                        </form>
+                    </div>
+                    <div class="alert alert-info mt-3" role="alert">
+                        <i class="fas fa-info-circle me-2"></i> सुनिश्चित करें कि आपकी सभी बैंक डिटेल्स सही हैं ताकि आपको समय पर भुगतान मिल सके।
                     </div>
                 </div>
 
-                <!-- Optional: No New Ride Requests message -->
-                <!-- <p class="no-requests-message">No new ride requests at the moment.</p> -->
             </div>
-
-            <!-- Current Ride Section -->
-            <div id="current-ride" class="content-section">
-                <h2>Current Ride</h2>
-
-                <div class="current-ride-card">
-                    <h3>Riding with: Anjali Singh</h3>
-                    <p><strong>Pickup:</strong> Old Delhi Railway Station</p>
-                    <p><strong>Drop:</strong> Karol Bagh Market</p>
-                    <p><strong>Fare:</strong> ₹150.00 | <strong>Type:</strong> Auto</p>
-
-                    <div class="live-tracking">
-                        <i class="fas fa-map-marker-alt"></i>
-                        Live Tracking (Google Maps API integration)
-                    </div>
-
-                    <div class="current-ride-actions">
-                        <button class="call-user-btn"><i class="fas fa-phone"></i> Call User</button>
-                        <button class="end-ride-btn"><i class="fas fa-times-circle"></i> End Ride</button>
-                    </div>
-                </div>
-
-                <!-- Optional: Message if no current ride -->
-                <!-- <p class="no-requests-message">No active ride at the moment.</p> -->
-            </div>
-
-            <!-- Earnings Dashboard Section -->
-            <div id="earnings" class="content-section">
-                <h2>Earnings Dashboard</h2>
-
-                <div class="earnings-summary">
-                    <div class="earning-card">
-                        <h3>Today's Earnings</h3>
-                        <p>₹1,250</p>
-                    </div>
-                    <div class="earning-card">
-                        <h3>This Week's Earnings</h3>
-                        <p>₹7,800</p>
-                    </div>
-                </div>
-
-                <div class="ride-earnings-list">
-                    <h3>Ride-wise Earnings</h3>
-                    <div class="earning-item">
-                        <span class="ride-info">Ride #DR12345 (User: Karan)</span>
-                        <span class="ride-amount">₹150.00</span>
-                    </div>
-                    <div class="earning-item">
-                        <span class="ride-info">Ride #DR12344 (User: Shruti)</span>
-                        <span class="ride-amount">₹80.00</span>
-                    </div>
-                    <div class="earning-item">
-                        <span class="ride-info">Ride #DR12343 (User: Rahul)</span>
-                        <span class="ride-amount">₹210.00</span>
-                    </div>
-                    <a href="#" class="view-full-report-btn">View Full Report</a>
-                </div>
-            </div>
-
-            <!-- Ride History Section -->
-            <div id="ride-history" class="content-section">
-                <h2>Your Ride History</h2>
-
-                <div class="history-card">
-                    <h3>Ride #DR12345 <span class="ride-status">(Completed)</span></h3>
-                    <span class="timestamp">2 days ago</span>
-                    <p>User: Karan Sharma | Auto</p>
-                    <p>Earned: ₹150.00</p>
-                    <p>From: Sector 18, Gurgaon</p>
-                    <p>To: Indira Gandhi International Airport</p>
-                </div>
-
-                <div class="history-card">
-                    <h3>Ride #DR12344 <span class="ride-status">(Completed)</span></h3>
-                    <span class="timestamp">Last week</span>
-                    <p>User: Shruti Verma | Bike</p>
-                    <p>Earned: ₹80.00</p>
-                    <p>From: Home Address</p>
-                    <p>To: Tech Park</p>
-                </div>
-                <!-- Add more history cards as needed -->
-            </div>
-
-            <!-- Vehicle Details Section -->
-            <div id="vehicle-details" class="content-section">
-                <h2>Manage Vehicle Details</h2>
-
-                <div class="vehicle-form">
-                    <div class="form-group">
-                        <label for="vehicle-type">Vehicle Type</label>
-                        <select id="vehicle-type" name="vehicle-type">
-                            <option value="bike">Bike</option>
-                            <option value="auto">Auto</option>
-                            <option value="car">Car</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="vehicle-model">Vehicle Model</label>
-                        <input type="text" id="vehicle-model" name="vehicle-model" value="Bajaj Pulsar 150">
-                    </div>
-                    <div class="form-group">
-                        <label for="license-plate">License Plate Number</label>
-                        <input type="text" id="license-plate" name="license-plate" value="UP65 AB 1234">
-                    </div>
-                    <div class="form-group">
-                        <label for="rc-document">RC Book / Registration Document</label>
-                        <input type="file" id="rc-document" name="rc-document">
-                        <p class="current-file-info">Current: RC_Pulsar_1234.pdf</p>
-                    </div>
-                    <button class="save-changes-btn">Save Changes</button>
-                </div>
-            </div>
-
-            <!-- Notifications Section -->
-            <div id="notifications" class="content-section">
-                <h2>Notifications</h2>
-
-                <div class="notification-card">
-                    <h3>New Ride Request!</h3>
-                    <span class="timestamp">Just now</span>
-                    <p>A new ride request from User: Priya Sharma. Pickup: Cyber City.</p>
-                </div>
-                <div class="notification-card">
-                    <h3>Your weekly payout processed!</h3>
-                    <span class="timestamp">Yesterday</span>
-                    <p>₹7,800 has been transferred to your bank account.</p>
-                </div>
-                <!-- Add more notification cards as needed -->
-            </div>
-
         </main>
     </div>
-
-    
+ <!-- Bootstrap JS Bundle (Popper included) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const navItems = document.querySelectorAll('.sidebar-nav .nav-item');
-            const contentSections = document.querySelectorAll('.content-section');
+            // JavaScript for QR Code preview and form submission
+            const upiQrCodeInput = document.getElementById('upiQrCode');
+            const qrCodePreview = document.getElementById('qrCodePreview');
+            const qrCodeImagePreview = document.getElementById('qrCodeImagePreview');
+            const driverBankDetailsForm = document.getElementById('driverBankDetailsForm');
 
-            // Function to hide all content sections
-            function hideAllSections() {
-                contentSections.forEach(section => {
-                    section.style.display = 'none';
-                });
-            }
-
-            // Function to deactivate all nav items
-            function deactivateAllNavItems() {
-                navItems.forEach(item => {
-                    item.classList.remove('active');
-                });
-            }
-
-            // Handle navigation clicks
-            navItems.forEach(item => {
-                item.addEventListener('click', function(event) {
-                    event.preventDefault(); // Prevent default link behavior (page reload)
-
-                    deactivateAllNavItems(); // Deactivate previous active item
-                    this.classList.add('active'); // Activate clicked item
-
-                    hideAllSections(); // Hide all content sections
-
-                    const targetId = this.getAttribute('data-target');
-                    const targetSection = document.getElementById(targetId);
-                    if (targetSection) {
-                        targetSection.style.display = 'block'; // Show the targeted section
+            if (upiQrCodeInput) { // Check if element exists
+                upiQrCodeInput.addEventListener('change', function(event) {
+                    if (event.target.files && event.target.files[0]) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            qrCodeImagePreview.src = e.target.result;
+                            qrCodePreview.style.display = 'block';
+                        };
+                        reader.readAsDataURL(event.target.files[0]);
                     }
                 });
-            });
+            }
 
-            // Show the default section (New Ride Requests) on page load
-            const initialTarget = document.querySelector('.sidebar-nav .nav-item.active').getAttribute('data-target');
-            document.getElementById(initialTarget).style.display = 'block';
+            // Make removeQrCode function globally accessible or place inside DOMContentLoaded
+            window.removeQrCode = function() {
+                if (upiQrCodeInput) upiQrCodeInput.value = ''; // Clear the file input
+                if (qrCodeImagePreview) qrCodeImagePreview.src = ''; // Clear the image source
+                if (qrCodePreview) qrCodePreview.style.display = 'none'; // Hide the preview div
+            };
+
+            if (driverBankDetailsForm) { // Check if element exists
+                driverBankDetailsForm.addEventListener('submit', function(event) {
+                    event.preventDefault(); // Prevent default form submission
+
+                    // You would typically collect form data here
+                    const bankName = document.getElementById('bankName').value;
+                    const accountHolderName = document.getElementById('accountHolderName').value;
+                    const accountNumber = document.getElementById('accountNumber').value;
+                    const ifscCode = document.getElementById('ifscCode').value;
+                    const upiId = document.getElementById('upiId').value;
+                    const qrFile = document.getElementById('upiQrCode').files[0];
+
+                    // Send this data to your backend
+                    console.log('Bank Details Submitted:', {
+                        bankName,
+                        accountHolderName,
+                        accountNumber,
+                        ifscCode,
+                        upiId,
+                        qrFile: qrFile ? qrFile.name : 'No file uploaded'
+                    });
+
+                    // Show a success message to the driver (e.g., using Bootstrap Toast)
+                    alert('Your bank details have been saved successfully!'); // Replace with a more sophisticated toast notification
+
+                    // Optionally, disable form fields or show current saved details
+                    // You would likely fetch and display existing details on page load in a real application.
+                });
+            }
+
+            // Initial active tab handling (if not using Bootstrap's default active tab on load)
+            // Bootstrap's JS usually handles this with 'show active' classes in HTML
+            const defaultActiveTab = document.querySelector('.sidebar-nav .nav-link.active');
+            if (defaultActiveTab) {
+                new bootstrap.Tab(defaultActiveTab).show();
+            }
         });
     </script>
 </body>
 </html>
-
 
 
 
